@@ -192,7 +192,7 @@ tsr_explorer <- function(
     assembly_type == "file" &&
     !file.exists(str_c(assembly, ".fai"))
   ) {
-    indexFa(assembly)
+    Rsamtools::indexFa(assembly)
   }
 
   ## Return the appropriate assembly.
@@ -200,7 +200,7 @@ tsr_explorer <- function(
     assembly_type,
     "none"=NULL,
     "internal"=experiment@meta_data$genome_assembly,
-    "file"=FaFile(assembly),
+    "file"=Rsamtools::FaFile(assembly),
     "bsgenome"=assembly
   )
 
