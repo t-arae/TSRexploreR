@@ -159,7 +159,7 @@ tsr_explorer <- function(
     anno_type,
     "internal"=experiment@meta_data$genome_annotation,
     "none"=NULL,
-    "file"=makeTxDbFromGFF(annotation),
+    "file"=GenomicFeatures::makeTxDbFromGFF(annotation),
     "txdb"=annotation
   )
 

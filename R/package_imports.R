@@ -36,7 +36,6 @@ NULL
 
 #' @importFrom rtracklayer import export
 #' @importFrom GenomicRanges GRanges
-#' @importFrom GenomicFeatures makeTxDbFromGFF
 #' @importFrom plyranges
 #'   as_granges stretch join_overlap_left_directed mutate
 #'   anchor_3p anchor_5p anchor_center
