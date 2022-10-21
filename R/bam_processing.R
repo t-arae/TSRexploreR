@@ -55,16 +55,16 @@ import_bams <- function(
   } 
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.flag(paired))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.flag(paired))
+  assertthat::assert_that(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
-  assert_that(is.null(soft_remove) || is.count(soft_remove))
-  assert_that(is.null(proper_pair) || is.flag(proper_pair))
-  assert_that(is.flag(remove_secondary))
-  assert_that(is.flag(remove_duplicate))
+  assertthat::assert_that(is.null(soft_remove) || is.count(soft_remove))
+  assertthat::assert_that(is.null(proper_pair) || is.flag(proper_pair))
+  assertthat::assert_that(is.flag(remove_secondary))
+  assertthat::assert_that(is.flag(remove_duplicate))
 
   ## Prepare sample sheet if necessary.
   sample_sheet_type <- case_when(
@@ -197,7 +197,7 @@ import_bams <- function(
 tss_aggregate <- function(experiment) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
 
   ## Get samples.
   samples <- experiment@experiment$TSSs
@@ -258,8 +258,8 @@ G_correction <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     is.null(assembly) ||
     (is.character(assembly) | is(assembly, "BSgenome"))
   )

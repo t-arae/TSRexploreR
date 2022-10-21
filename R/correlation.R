@@ -73,22 +73,22 @@ plot_correlation <- function(
   ## Check inputs.
   if (!is(experiment, "tsr_explorer")) stop("experiment must be a TSRexploreR object")
   data_type <- match.arg(data_type, c("tss", "tsr", "tss_features", "tsr_features"))
-  assert_that(is.character(samples))
+  assertthat::assert_that(is.character(samples))
   correlation_metric <- match.arg(
    str_to_lower(correlation_metric),
     c("pearson", "spearman")
   )
-  assert_that(is.numeric(font_size) && font_size > 0)
-  assert_that(is.flag(cluster_samples))
-  assert_that(is.null(heatmap_colors) | is.character(heatmap_colors))
-  assert_that(is.flag(show_values))
-  assert_that(is.flag(use_normalized))
-  assert_that(
+  assertthat::assert_that(is.numeric(font_size) && font_size > 0)
+  assertthat::assert_that(is.flag(cluster_samples))
+  assertthat::assert_that(is.null(heatmap_colors) | is.character(heatmap_colors))
+  assertthat::assert_that(is.flag(show_values))
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold > 0)
   )
-  assert_that(is.flag(return_matrix))
-  assert_that(is.count(n_samples))
+  assertthat::assert_that(is.flag(return_matrix))
+  assertthat::assert_that(is.count(n_samples))
 
   ## Get data from proper slot.
   normalized_counts <- experiment %>%

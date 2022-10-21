@@ -156,36 +156,36 @@ plot_heatmap <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
-  assert_that(is.count(upstream))
-  assert_that(is.count(downstream))
-  assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assert_that(is.flag(use_normalized))
-  assert_that(is.flag(dominant))
   data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr"))
-  assert_that(is.flag(rasterize))
-  assert_that(is.count(raster_dpi))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
+  assertthat::assert_that(is.count(upstream))
+  assertthat::assert_that(is.count(downstream))
+  assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(is.flag(dominant))
+  assertthat::assert_that(is.flag(rasterize))
+  assertthat::assert_that(is.count(raster_dpi))
+  assertthat::assert_that(
     is.null(max_value) ||
     (is.numeric(max_value) && max_value > 0)
   )
-  assert_that(is.character(low_color))
-  assert_that(is.character(high_color))
-  assert_that(is.flag(log2_transform))
-  assert_that(is.count(ncol))
-  assert_that(is.flag(order_descending))
-  assert_that(is.function(order_fun))
-  assert_that(is.null(order_samples) || is.character(order_samples))
-  assert_that(is.function(quantile_fun))
-  assert_that(is.count(n_quantiles))
-  assert_that(is.null(quantile_samples) || is.character(quantile_samples))
-  assert_that(
+  assertthat::assert_that(is.character(low_color))
+  assertthat::assert_that(is.character(high_color))
+  assertthat::assert_that(is.flag(log2_transform))
+  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(is.flag(order_descending))
+  assertthat::assert_that(is.function(order_fun))
+  assertthat::assert_that(is.null(order_samples) || is.character(order_samples))
+  assertthat::assert_that(is.function(quantile_fun))
+  assertthat::assert_that(is.count(n_quantiles))
+  assertthat::assert_that(is.null(quantile_samples) || is.character(quantile_samples))
+  assertthat::assert_that(
     is.null(split_by) ||
     (is.list(split_by) && has_attr(split_by, "names")) ||
     (is.data.frame(split_by) && colnames(split_by) %in% c("feature", "split_group"))
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(diff_heatmap_list) ||
     (is.list(diff_heatmap_list) &&
     has_attr(diff_heatmap_list, "names") &&

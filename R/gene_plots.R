@@ -53,14 +53,14 @@ plot_detected_features <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
   data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assert_that(is.flag(dominant))
-  assert_that(is.flag(use_normalized))
-  assert_that(is.null(data_conditions) || is.list(data_conditions))
-  assert_that(is.flag(return_table))
+  assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
+  assertthat::assert_that(is.flag(dominant))
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(is.null(data_conditions) || is.list(data_conditions))
+  assertthat::assert_that(is.flag(return_table))
 
   ## Get sample data.
   sample_data <- experiment %>%

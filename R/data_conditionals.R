@@ -71,14 +71,14 @@ conditionals <- function(
 ) {
 
   ## Check inputs.
-  assert_that(
+  assertthat::assert_that(
     is.null(data_ordering) || (
       is.list(data_ordering) && 
       has_attr(data_ordering, "condition_type") &&
       attributes(data_ordering)$condition_type == "ordering"
     )
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(data_quantiling) || (
       is.list(data_quantiling) &&
       has_attr(data_quantiling, "condition_type") &&
@@ -227,10 +227,10 @@ quantiling <- function(
 ){
 
   ## Check inputs.
-  assert_that(is.null(n) || is.count(n))
-  assert_that(is.null(samples) || is.character(samples))
-  assert_that(is.flag(descending))
-  assert_that(is.function(aggr_fun))
+  assertthat::assert_that(is.null(n) || is.count(n))
+  assertthat::assert_that(is.null(samples) || is.character(samples))
+  assertthat::assert_that(is.flag(descending))
+  assertthat::assert_that(is.function(aggr_fun))
 
   ## Quosure for by column.
   by <- enquo(by)
@@ -269,7 +269,7 @@ condition_data <- function(
 ) {
 
   ## Input checks.
-  assert_that(
+  assertthat::assert_that(
     is.null(data_conditions) || (
       is.list(data_conditions) &&
       has_attr(data_conditions, "data_conditions")

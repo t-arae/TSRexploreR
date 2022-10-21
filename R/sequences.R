@@ -31,28 +31,28 @@ retrieve_seqs <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr", "shfit")
   )
-  assert_that(is.character("samples"))
-  assert_that(
+  assertthat::assert_that(is.character("samples"))
+  assertthat::assert_that(
     is.null(genome_assembly) ||
     is(genome_assembly, "BSgenome") ||
     is.character(genome_assembly)
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold >= 0)
   )
-  assert_that(is.flag(dominant))
-  assert_that(
+  assertthat::assert_that(is.flag(dominant))
+  assertthat::assert_that(
     is.null(extend_upstream) ||
     is.count(extend_upstream)
   )
-  assert_that(is.flag(fixed_size))
-  assert_that(
+  assertthat::assert_that(is.flag(fixed_size))
+  assertthat::assert_that(
     is.null(extend_downstream) ||
     is.count(extend_downstream)
   )
@@ -60,7 +60,7 @@ retrieve_seqs <- function(
     str_to_lower(return_format),
     c("table", "biostrings")
   )
-  assert_that(is.null(output_dir) || is.string(output_dir))
+  assertthat::assert_that(is.null(output_dir) || is.string(output_dir))
 
   ## Get selected samples.
   selected_samples <- experiment %>%

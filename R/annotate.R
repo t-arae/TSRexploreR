@@ -51,16 +51,16 @@ annotate_features <- function(
   }
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     is.null(genome_annotation) ||
     is(genome_annotation, "character") || is(genome_annotation, "TxDb"),
     msg="genome_annotation must be a GTF/GFF3 annotation file or TxDb object"
   )
   data_type <- match.arg(data_type, c("tss", "tsr", "tss_diff", "tsr_diff", "shift")) 
   feature_type <- match.arg(feature_type, c("gene", "transcript"))
-  assert_that(is.count(upstream))
-  assert_that(is.count(downstream))
+  assertthat::assert_that(is.count(upstream))
+  assertthat::assert_that(is.count(downstream))
 
   ## Load GTF.
   genome_annotation <- .prepare_annotation(genome_annotation, experiment)

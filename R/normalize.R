@@ -58,16 +58,16 @@ normalize_counts <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tss_features")
   )
   method <- match.arg(str_to_lower(method), c("edger", "deseq2", "cpm"))
-  assert_that(is.count(threshold))
-  assert_that(is.count(n_samples))
+  assertthat::assert_that(is.count(threshold))
+  assertthat::assert_that(is.count(n_samples))
   if (method == "DESeq2") {
-    assert_that(!is.null(experiment@meta_data$sample_sheet))
+    assertthat::assert_that(!is.null(experiment@meta_data$sample_sheet))
   }
 
   ## Check whether DESeq2 or edgeR is required.
@@ -141,7 +141,7 @@ normalize_counts <- function(
 .edger_normalize <- function(count_matrix) {
   
   ## Input check.
-  assert_that(is.matrix(count_matrix))
+  assertthat::assert_that(is.matrix(count_matrix))
 
   ## TMM Normalization.
   normalized_counts <- count_matrix %>%
@@ -160,8 +160,8 @@ normalize_counts <- function(
 .deseq2_normalize <- function(count_matrix, coldata) {
 
   ## Validate inputs.
-  assert_that(is.matrix(count_matrix))
-  assert_that(is.data.frame(coldata))
+  assertthat::assert_that(is.matrix(count_matrix))
+  assertthat::assert_that(is.data.frame(coldata))
 
   ## DESeq2 normalization.
   normalized_counts <- count_matrix %>%

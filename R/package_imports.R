@@ -28,7 +28,7 @@ NULL
 #' @importFrom forcats fct_rev fct_inorder fct_reorder fct_relevel fct_recode
 #' @importFrom dplyr pull case_when desc
 #' @importFrom assertthat
-#'   assert_that is.count is.flag is.string has_name has_attr
+#'   is.count is.flag is.string has_name has_attr
 #'   is.readable
 #' @importFrom rlang .data enquo enquos quo_is_null "!!" "!!!" quo_text ensym
 

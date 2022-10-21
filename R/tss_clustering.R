@@ -43,13 +43,13 @@ tss_clustering <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
-  assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assert_that(is.count(max_distance))
-  assert_that(is.null(max_width) || is.count(max_width))
-  assert_that(is.null(n_samples) || is.count(n_samples))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
+  assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
+  assertthat::assert_that(is.count(max_distance))
+  assertthat::assert_that(is.null(max_width) || is.count(max_width))
+  assertthat::assert_that(is.null(n_samples) || is.count(n_samples))
+  assertthat::assert_that(
     is.null(singlet_threshold) ||
     (is.numeric(singlet_threshold) && singlet_threshold > 0)
   )
@@ -125,8 +125,8 @@ tss_clustering <- function(
 .aggr_scores <- function(granges, maxdist, maxwidth, sthresh) {
 
   ## Check inputs.
-  assert_that(is(granges, "GRanges"))
-  assert_that(is.count(maxdist) | maxdist == 0)
+  assertthat::assert_that(is(granges, "GRanges"))
+  assertthat::assert_that(is.count(maxdist) | maxdist == 0)
 
   ## Get TSSs within max distance.
   reduced <- granges %>%

@@ -13,13 +13,13 @@
 ) {
 
   ## Input check.
-  assert_that(is.list(count_data) && has_attr(count_data, "names"))
+  assertthat::assert_that(is.list(count_data) && has_attr(count_data, "names"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr")
   )
-  assert_that(is.flag(use_normalized))
-  assert_that(
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold > 0)
   )

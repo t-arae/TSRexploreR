@@ -38,8 +38,8 @@ associate_with_tsr <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     is.null(sample_list) ||
     (is.list(sample_list) && has_attr(sample_list, "names"))
   )

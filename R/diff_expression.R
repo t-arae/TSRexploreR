@@ -63,16 +63,16 @@ fit_de_model <- function(
   }
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  assert_that(is.character(samples) && (all(samples == "all") || length(samples) >= 6))
-  assert_that(is(formula, "formula"))
   method <- match.arg(str_to_lower(method), c("deseq2", "edger"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples) && (all(samples == "all") || length(samples) >= 6))
+  assertthat::assert_that(is(formula, "formula"))
 
   ## Design table.
   sample_sheet <- copy(experiment@meta_data$sample_sheet)
   sample_sheet[, c("file_1", "file_2") := NULL]
-  assert_that(all(all.vars(formula) %in% colnames(sample_sheet)))
+  assertthat::assert_that(all(all.vars(formula) %in% colnames(sample_sheet)))
   sample_sheet <- column_to_rownames(sample_sheet, "sample_name")
 
   ## Get data from appropriate slot and convert to count matrix.
@@ -120,9 +120,9 @@ fit_de_model <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is.matrix(count_data))
-  assert_that(is.data.frame(sample_sheet))
-  assert_that(is(formula, "formula"))
+  assertthat::assert_that(is.matrix(count_data))
+  assertthat::assert_that(is.data.frame(sample_sheet))
+  assertthat::assert_that(is(formula, "formula"))
 
   ## Design matrix.
   design <- model.matrix(formula, data=sample_sheet)
@@ -159,9 +159,9 @@ fit_de_model <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is.matrix(count_data))
-  assert_that(is.data.frame(sample_sheet))
-  assert_that(is(formula, "formula"))
+  assertthat::assert_that(is.matrix(count_data))
+  assertthat::assert_that(is.data.frame(sample_sheet))
+  assertthat::assert_that(is(formula, "formula"))
 
   ## Differential expression.
   de_model <- count_data %>%
@@ -251,15 +251,15 @@ differential_expression <- function(
   }
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  assert_that(is.string(comparison_name))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.string(comparison_name))
   comparison_type <- match.arg(
     str_to_lower(comparison_type),
     c("name", "contrast", "coef")
   )
-  assert_that(is.vector(comparison))
-  assert_that(is.flag(shrink_lfc))
+  assertthat::assert_that(is.vector(comparison))
+  assertthat::assert_that(is.flag(shrink_lfc))
 
   ## Get appropriate model.
   de_model <- switch(
@@ -351,9 +351,9 @@ differential_expression <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is.data.frame(de_results))
-  assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
-  assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
+  assertthat::assert_that(is.data.frame(de_results))
+  assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
+  assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
 
   ## Mark DE status.
   de_results[,

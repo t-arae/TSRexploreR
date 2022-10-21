@@ -71,15 +71,15 @@ tsr_explorer <- function(
 ) {
 
   ## Input Check.
-  assert_that(
+  assertthat::assert_that(
     all(is.na(TSSs)) ||
    (is.list(TSSs) && has_attr(TSSs, "names"))
   )
-  assert_that(
+  assertthat::assert_that(
     all(is.na(TSRs)) ||
     (is.list(TSRs) && has_attr(TSRs, "names"))
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(sample_sheet) ||
     is.data.frame(sample_sheet) ||
     is.character(sample_sheet)
@@ -100,7 +100,7 @@ tsr_explorer <- function(
   )
 
   if (sample_sheet_type != "none") {
-    assert_that(
+    assertthat::assert_that(
       all(c("sample_name", "file_1", "file_2") %in%
       colnames(sample_sheet))
     )
@@ -151,7 +151,7 @@ tsr_explorer <- function(
   )
 
   if(anno_type == "internal") {
-    assert_that(!is.null(experiment@meta_data$genome_annotation))
+    assertthat::assert_that(!is.null(experiment@meta_data$genome_annotation))
   }
 
   ## Prepare annotation based on type.
@@ -184,7 +184,7 @@ tsr_explorer <- function(
 
   ## Make sure an assembly is in the object if none provided.
   if (assembly_type == "internal") {
-    assert_that(!is.null(experiment@meta_data$genome_assembly))
+    assertthat::assert_that(!is.null(experiment@meta_data$genome_assembly))
   }
 
   ## If assembly is a fasta file make sure it's indexed.
