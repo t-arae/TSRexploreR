@@ -158,8 +158,8 @@ retrieve_seqs <- function(
     iwalk(seqs, function(x, y) {
       file_name <- switch(
         return_format,
-        "biostrings"=file.path(output_dir, str_c(y, ".fasta")),
-        "table"=file.path(output_dir, str_c(y, ".tsv"))
+        "biostrings"=file.path(output_dir, stringr::str_c(y, ".fasta")),
+        "table"=file.path(output_dir, stringr::str_c(y, ".tsv"))
       )
       switch(
         return_format,

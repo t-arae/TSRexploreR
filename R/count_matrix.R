@@ -42,7 +42,7 @@
     # Prepare reduced ranges for overlap with original ranges.
     setkey(merged_ranges, seqnames, strand, start, end)
     merged_ranges[,
-      FHASH := str_c(seqnames, start, end, strand, sep=":"),
+      FHASH := stringr::str_c(seqnames, start, end, strand, sep=":"),
       by=seq_len(nrow(merged_ranges))
     ][,
       width := NULL

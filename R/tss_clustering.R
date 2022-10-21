@@ -90,7 +90,7 @@ tss_clustering <- function(
   clustered_TSSs <- map(clustered_TSSs, function(x) {
     x <- as.data.table(x)
     x[,
-      FHASH := str_c(seqnames, start, end, strand, sep=":"),
+      FHASH := stringr::str_c(seqnames, start, end, strand, sep=":"),
       by=seq_len(nrow(x))
     ]
     return(x)

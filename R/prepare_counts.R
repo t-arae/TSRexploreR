@@ -54,7 +54,7 @@ format_counts <- function(
   if (data_type %in% c("tss", "tsr")) {
     raw_counts <- map(select_samples, function(x) {
       x <- as.data.table(x)
-      x[, FHASH := str_c(seqnames, start, end, strand, sep=":")]
+      x[, FHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
       return(x)
     })
   }
