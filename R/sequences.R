@@ -73,7 +73,7 @@ retrieve_seqs <- function(
   genome_assembly <- .prepare_assembly(genome_assembly, experiment)
 
   ## Add chromosome lengths to GRanges.
-  assembly_type <- case_when(
+  assembly_type <- dplyr::case_when(
     is(genome_assembly, "BSgenome") ~ "bsgenome",
     is(genome_assembly, "FaFile") ~ "fafile"
   )

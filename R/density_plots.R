@@ -84,7 +84,7 @@ plot_density <- function(
   assertthat::assert_that(is.flag(exclude_antisense))
 
   ## Assign color type.
-  color_type <- case_when(
+  color_type <- dplyr::case_when(
     color == "default" & data_type == "tss" ~ "#431352",
     color == "default" & data_type == "tsr" ~ "#34698c",
     TRUE ~ color

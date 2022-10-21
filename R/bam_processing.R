@@ -67,7 +67,7 @@ import_bams <- function(
   assertthat::assert_that(is.flag(remove_duplicate))
 
   ## Prepare sample sheet if necessary.
-  sample_sheet_type <- case_when(
+  sample_sheet_type <- dplyr::case_when(
     is.null(sample_sheet) ~ "internal",
     is.character(sample_sheet) ~ "file",
     is.data.frame(sample_sheet) ~ "data_frame"
@@ -267,7 +267,7 @@ G_correction <- function(
   ## Prepare assembly.
   assembly <- .prepare_assembly(assembly, experiment)
 
-  assembly_type <- case_when(
+  assembly_type <- dplyr::case_when(
     is(assembly, "FaFile") ~ "fafile",
     is(assembly, "BSgenome") ~ "bsgenome"
   )

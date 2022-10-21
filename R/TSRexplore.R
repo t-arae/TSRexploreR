@@ -86,7 +86,7 @@ tsr_explorer <- function(
   )
 
   ## Prepare sample sheet.
-  sample_sheet_type <- case_when(
+  sample_sheet_type <- dplyr::case_when(
     is.null(sample_sheet) ~ "none",
     is.data.frame(sample_sheet) ~ "dataframe",
     is.character(sample_sheet) ~ "file"
@@ -143,7 +143,7 @@ tsr_explorer <- function(
 .prepare_annotation <- function(annotation, experiment=NULL) {
 
   ## Get annotation type.
-  anno_type <- case_when(
+  anno_type <- dplyr::case_when(
     is.null(annotation) & !is.null(experiment) ~ "internal",
     is.null(annotation) & is.null(experiment) ~ "none",
     is.character(annotation) ~ "file",
@@ -175,7 +175,7 @@ tsr_explorer <- function(
 .prepare_assembly <- function(assembly, experiment=NULL) {
 
   ## Set the assembly type based on input.
-  assembly_type <- case_when(
+  assembly_type <- dplyr::case_when(
     is.null(assembly) & !is.null(experiment) ~ "internal",
     is.null(assembly) & is.null(experiment) ~ "none",
     is.character(assembly) ~ "file",

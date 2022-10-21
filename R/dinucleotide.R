@@ -88,7 +88,7 @@ plot_dinucleotide_frequencies <- function(
     plyranges::mutate(width=2)
 
   ## Get dinucleotides.
-  assembly_type <- case_when(
+  assembly_type <- dplyr::case_when(
     is(fasta_assembly, "BSgenome") ~ "bsgenome",
     is(fasta_assembly, "FaFile") ~ "fafile"
   )
@@ -105,7 +105,7 @@ plot_dinucleotide_frequencies <- function(
   setnames(seqs, old="x", new="dinucleotide")
 
   ## Find dinucleotide frequencies.
-  data_grouping <- case_when(
+  data_grouping <- dplyr::case_when(
     !is.null(data_conditions$quantiling) ~ "row_quantile",
     !is.null(data_conditions$grouping) ~ "row_groups",
     TRUE ~ "none"

@@ -136,7 +136,7 @@ annotate_features <- function(
 
   ## Create a column with simplified annotations.
   annotated[,
-    simple_annotations := case_when(
+    simple_annotations := dplyr::case_when(
       annotation == "Promoter" ~ "Promoter",
       str_detect(annotation, pattern="(Exon|UTR)") ~ "Exon",
       str_detect(annotation, pattern="Intron") ~ "Intron",

@@ -271,7 +271,7 @@ differential_expression <- function(
   )
 
   ## Retrieve the DE method.
-  de_method <- case_when(
+  de_method <- dplyr::case_when(
     is(de_model, "DESeqDataSet") ~ "deseq2",
     is(de_model, "DGEGLM") ~ "edger"
   )
@@ -357,7 +357,7 @@ differential_expression <- function(
 
   ## Mark DE status.
   de_results[,
-    de_status := case_when(
+    de_status := dplyr::case_when(
       is.na(padj) | is.na(log2FC) ~ "unchanged",
       padj > fdr_cutoff | abs(log2FC) < log2fc_cutoff ~ "unchanged",
       padj <= fdr_cutoff & log2FC >= log2fc_cutoff ~ "up",

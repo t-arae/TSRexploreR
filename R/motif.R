@@ -45,7 +45,7 @@
   select_samples <- as_granges(select_samples)
 
   ## Add chromosome lengths to GRanges.
-  assembly_type <- case_when(
+  assembly_type <- dplyr::case_when(
     is(genome_assembly, "BSgenome") ~ "bsgenome",
     is(genome_assembly, "FaFile") ~ "fafile"
   )
@@ -206,7 +206,7 @@ plot_sequence_logo <- function(
   )
 
   ## Store status of data conditions.
-  grouping_status <- case_when(
+  grouping_status <- dplyr::case_when(
     !is.null(data_conditions$quantiling) ~ "row_quantile",
     !is.null(data_conditions$grouping) ~ "row_groups",
     TRUE ~ "none"
@@ -376,7 +376,7 @@ plot_sequence_colormap <- function(
   )
 
   ## Store status of data conditions.
-  grouping_status <- case_when(
+  grouping_status <- dplyr::case_when(
     !is.null(data_conditions$quantiling) ~ "row_quantile",
     !is.null(data_conditions$grouping) ~ "row_groups",
     TRUE ~ "none"
