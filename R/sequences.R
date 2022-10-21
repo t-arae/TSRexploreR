@@ -164,7 +164,7 @@ retrieve_seqs <- function(
       switch(
         return_format,
         "table"=fwrite(x, file_name, sep="\t"),
-        "biostrings"=writeXStringSet(x, file_name, format="fasta")
+        "biostrings"=Biostrings::writeXStringSet(x, file_name, format="fasta")
       )
     })
   }
