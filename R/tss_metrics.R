@@ -52,13 +52,13 @@ mark_dominant <- function(
 ) {
 
   ## Check inputs.
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold >= 0)
   )
-  mark_per <- match.arg(str_to_lower(mark_per), c("default", "gene"))
+  mark_per <- match.arg(stringr::str_to_lower(mark_per), c("default", "gene"))
 
   ## Select samples.
   select_samples <- extract_counts(experiment, data_type, "all", use_normalized)

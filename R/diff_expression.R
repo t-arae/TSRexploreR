@@ -48,7 +48,7 @@ fit_de_model <- function(
 ) {
 
   ## Check if edgeR and/or DESeq2 is installed.
-  method <- match.arg(str_to_lower(method), c("deseq2", "edger"))
+  method <- match.arg(stringr::str_to_lower(method), c("deseq2", "edger"))
   
   if (method == "deseq2") {
     if (!requireNamespace("DESeq2", quietly = TRUE)) {
@@ -63,11 +63,11 @@ fit_de_model <- function(
   }
 
   ## Input checks.
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  method <- match.arg(str_to_lower(method), c("deseq2", "edger"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
   assertthat::assert_that(is.character(samples) && (all(samples == "all") || length(samples) >= 6))
   assertthat::assert_that(is(formula, "formula"))
+  method <- match.arg(stringr::str_to_lower(method), c("deseq2", "edger"))
 
   ## Design table.
   sample_sheet <- copy(experiment@meta_data$sample_sheet)
@@ -251,11 +251,11 @@ differential_expression <- function(
   }
 
   ## Input checks.
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
   assertthat::assert_that(is.string(comparison_name))
   comparison_type <- match.arg(
-    str_to_lower(comparison_type),
+    stringr::str_to_lower(comparison_type),
     c("name", "contrast", "coef")
   )
   assertthat::assert_that(is.vector(comparison))

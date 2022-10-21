@@ -75,7 +75,7 @@ plot_correlation <- function(
   data_type <- match.arg(data_type, c("tss", "tsr", "tss_features", "tsr_features"))
   assertthat::assert_that(is.character(samples))
   correlation_metric <- match.arg(
-   str_to_lower(correlation_metric),
+   stringr::str_to_lower(correlation_metric),
     c("pearson", "spearman")
   )
   assertthat::assert_that(is.numeric(font_size) && font_size > 0)

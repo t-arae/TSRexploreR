@@ -156,7 +156,6 @@ plot_heatmap <- function(
 ) {
 
   ## Check inputs.
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
   assertthat::assert_that(is.count(upstream))
@@ -164,6 +163,7 @@ plot_heatmap <- function(
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
   assertthat::assert_that(is.flag(use_normalized))
   assertthat::assert_that(is.flag(dominant))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is.flag(rasterize))
   assertthat::assert_that(is.count(raster_dpi))
   assertthat::assert_that(

@@ -60,10 +60,10 @@ normalize_counts <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tss_features")
   )
-  method <- match.arg(str_to_lower(method), c("edger", "deseq2", "cpm"))
+  method <- match.arg(stringr::str_to_lower(method), c("edger", "deseq2", "cpm"))
   assertthat::assert_that(is.count(threshold))
   assertthat::assert_that(is.count(n_samples))
   if (method == "DESeq2") {

@@ -70,8 +70,8 @@ plot_density <- function(
 ) {
 
   ## Check inputs.
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is.character(samples))
   assertthat::assert_that(is.flag(consider_score))
   assertthat::assert_that(is.count(upstream))

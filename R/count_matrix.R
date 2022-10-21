@@ -15,7 +15,7 @@
   ## Input check.
   assertthat::assert_that(is.list(count_data) && has_attr(count_data, "names"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr")
   )
   assertthat::assert_that(is.flag(use_normalized))

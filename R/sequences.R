@@ -33,7 +33,7 @@ retrieve_seqs <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr", "shfit")
   )
   assertthat::assert_that(is.character("samples"))
@@ -57,7 +57,7 @@ retrieve_seqs <- function(
     is.count(extend_downstream)
   )
   return_format <- match.arg(
-    str_to_lower(return_format),
+    stringr::str_to_lower(return_format),
     c("table", "biostrings")
   )
   assertthat::assert_that(is.null(output_dir) || is.string(output_dir))
