@@ -20,7 +20,6 @@ NULL
 #' @importFrom dplyr pull desc
 #' @importFrom assertthat
 #'   is.count is.flag is.string has_name has_attr
-#'   is.readable
 #' @importFrom rlang .data enquo enquos quo_is_null "!!" "!!!" quo_text ensym
 
 NULL
