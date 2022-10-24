@@ -106,14 +106,14 @@ tss_export <- function(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_pos.bedgraph")
       )
-      export(pos_data, pos_file, "bedgraph")
+      rtracklayer::export(pos_data, pos_file, "bedgraph")
 
       min_data <- x[strand(x) == "-"]
       min_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_min.bedgraph")
       )
-      export(min_data, min_file, "bedgraph")
+      rtracklayer::export(min_data, min_file, "bedgraph")
     })
   } else if (file_type == "table") {
     purrr::iwalk(export_samples, function(x, y) {
@@ -133,14 +133,14 @@ tss_export <- function(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_pos.bigwig") 
       )
-      export(pos_data, pos_file, "bigwig")
+      rtracklayer::export(pos_data, pos_file, "bigwig")
 
       min_data <- x[strand(x) == "-"]
       min_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_min.bigwig")
       )
-      export(min_data, min_file, "bigwig")
+      rtracklayer::export(min_data, min_file, "bigwig")
     })
   }
 }
@@ -224,7 +224,7 @@ tsr_export <- function(
         stringr::str_c(y, "_TSRs.bed")
       )
 
-      export(x, bed_file, "bed")
+      rtracklayer::export(x, bed_file, "bed")
     })
   } else if (file_type == "table") {
     purrr::iwalk(export_samples, function(x, y) {

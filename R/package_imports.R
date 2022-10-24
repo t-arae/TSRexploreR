@@ -22,10 +22,6 @@ NULL
 
 NULL
 
-#' @importFrom rtracklayer export
-
-NULL
-
 #' @importFrom BiocGenerics width start end "strand<-"
 #' @importFrom GenomeInfoDb "seqlengths<-" seqlengths
 #' @importFrom SummarizedExperiment rowRanges SummarizedExperiment rowData
