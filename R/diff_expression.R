@@ -175,8 +175,6 @@ fit_de_model <- function(
 #'
 #' Find differential TSSs or TSRs from previously generated edgeR or DESeq2 model.
 #'
-#' @importFrom SummarizedExperiment rowData
-#'
 #' @inheritParams common_params
 #' @param data_type Whether the input was generated from TSSs ('tss') or TSRs ('tsr').
 #' @param comparison_name The name given to the comparison when stored back into the TSRexploreR object.
