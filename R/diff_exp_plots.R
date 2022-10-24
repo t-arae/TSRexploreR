@@ -63,7 +63,7 @@ plot_ma <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr", "tss_features", "tsr_features")
   )
   assertthat::assert_that(is.character(de_comparisons))
@@ -159,7 +159,7 @@ plot_volcano <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr", "tss_features", "tsr_features")
   )
   assertthat::assert_that(is.character(de_comparisons))
@@ -272,8 +272,8 @@ export_for_enrichment <- function(
 ) {
 
   ## Input checks.
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(is.character(de_comparisons))
   assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
   assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
@@ -379,7 +379,7 @@ plot_num_de <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr", "tss_features", "tsr_features")
   )
   assertthat::assert_that(is.character(de_comparisons))

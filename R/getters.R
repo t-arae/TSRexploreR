@@ -30,7 +30,7 @@ get_granges <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr")
   )
   assertthat::assert_that(is.character(samples))
@@ -86,7 +86,7 @@ get_counts <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr")
   )
   assertthat::assert_that(is.character(samples))
@@ -303,7 +303,7 @@ get_diff_model <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr")
   )
 
@@ -364,7 +364,7 @@ get_diff_results <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
-    str_to_lower(data_type),
+    stringr::str_to_lower(data_type),
     c("tss", "tsr")
   )
   assertthat::assert_that(is.character(samples))

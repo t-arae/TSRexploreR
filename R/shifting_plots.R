@@ -56,7 +56,7 @@ plot_shift_rank <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
   score_order <- match.arg(
-    str_to_lower(score_order),
+    stringr::str_to_lower(score_order),
     c("descending", "ascending")
   )
   assertthat::assert_that(is.count(ncol))

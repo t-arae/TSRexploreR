@@ -55,7 +55,7 @@ plot_detected_features <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
-  data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
+  data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
   assertthat::assert_that(is.flag(dominant))
   assertthat::assert_that(is.flag(use_normalized))

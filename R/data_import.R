@@ -65,7 +65,7 @@ tss_import <- function(
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
   file_type <- match.arg(
-    str_to_lower(file_type),
+    stringr::str_to_lower(file_type),
     c("auto", "bigwig", "bedgraph", "table", "ctss")
   )
   assertthat::assert_that(is.string(delim))
@@ -93,7 +93,7 @@ tss_import <- function(
       unlist %>%
       discard(is.na) %>%
       str_extract("(?<=\\.)[[:alpha:]]+$") %>%
-      str_to_lower %>%
+      stringr::str_to_lower() %>%
       unique
 
     assertthat::assert_that(
@@ -305,7 +305,7 @@ tsr_import <- function(
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
   file_type <- match.arg(
-    str_to_lower(file_type),
+    stringr::str_to_lower(file_type),
     c("auto", "table", "bed")
   )
   assertthat::assert_that(is.string(delim))
@@ -333,7 +333,7 @@ tsr_import <- function(
       unlist %>%
       discard(is.na) %>%
       str_extract("(?<=\\.)[[:alpha:]]+$") %>%
-      str_to_lower %>%
+      stringr::str_to_lower() %>%
       unique
 
     assertthat::assert_that(

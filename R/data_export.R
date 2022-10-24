@@ -56,7 +56,7 @@ tss_export <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
   file_type <- match.arg(
-    str_to_lower(file_type),
+    stringr::str_to_lower(file_type),
     c("bedgraph", "table", "bigwig")
   )
   assertthat::assert_that(is.na(out_dir) || is.character(out_dir))
@@ -199,9 +199,9 @@ tsr_export <- function(
 ) {
 
   ## Check inputs.
-  file_type <- match.arg(str_to_lower(file_type), c("bed", "table"))
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
+  file_type <- match.arg(stringr::str_to_lower(file_type), c("bed", "table"))
   if (!is.na(out_dir) && !is(out_dir, "character")) stop("out_dir must be NA or a character")
   assertthat::assert_that(is.flag(diff_tsr))
 

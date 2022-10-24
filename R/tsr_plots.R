@@ -60,7 +60,7 @@ plot_tsr_metric <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(tsr_metrics))
   plot_type <- match.arg(
-    str_to_lower(plot_type),
+    stringr::str_to_lower(plot_type),
     c("violin", "jitter", "box", "boxjitter")
   )
   assertthat::assert_that(is.character(samples))

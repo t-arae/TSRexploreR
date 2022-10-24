@@ -77,11 +77,11 @@ gene_tracks <- function(
     is.null(genome_annotation) || is.character(genome_annotation) ||
     is(genome_annotation, "TxDb")
   )
-  feature_type <- match.arg(str_to_lower(feature_type), c("gene", "transcript"))
   assertthat::assert_that(is.string(feature_name))
+  feature_type <- match.arg(stringr::str_to_lower(feature_type), c("gene", "transcript"))
   assertthat::assert_that(is.character(samples))
   names(samples) <- match.arg(
-    str_to_lower(names(samples)),
+    stringr::str_to_lower(names(samples)),
     c("tss", "tsr"), several.ok=TRUE
   )
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
@@ -94,7 +94,7 @@ gene_tracks <- function(
   assertthat::assert_that(is.numeric(axis_scale) && axis_scale > 0)
   assertthat::assert_that(is.na(ymax) || is.numeric(ymax))
   anno_pos <- match.arg(
-    str_to_lower(anno_pos),
+    stringr::str_to_lower(anno_pos),
     c("top", "bottom")
   )
 
