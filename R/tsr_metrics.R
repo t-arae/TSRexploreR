@@ -73,7 +73,7 @@ tsr_metrics <- function(
   ## Add metrics back to TSRs.
   tsr_names <- select_samples[["tsr_sample"]] %>%
     unique %>%
-    discard(~ is.na(.))
+    purrr::discard(~ is.na(.))
   
   select_TSRs <- experiment %>%
     extract_counts("tsr", tsr_names) %>%
