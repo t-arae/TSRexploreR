@@ -135,7 +135,7 @@ import_bams <- function(
       stringr::str_extract(cigar, "^[[:digit:]]+(?=S)"), # For + strand soft-clip is at cigar beginning.
       stringr::str_extract(cigar, "[[:digit:]]+S$")      # For - strand soft-clip is at cigar end.
     ))][,
-      n_soft := replace_na(n_soft, 0)
+      n_soft := tidyr::replace_na(n_soft, 0)
     ][
       n_soft == 0, seq := "none" # If there are no soft-clipped bases, replace seq with 'none'
     ][
