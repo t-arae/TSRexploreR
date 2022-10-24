@@ -17,7 +17,6 @@ NULL
 #'   geom_density geom_point geom_col geom_vline geom_tile geom_line
 #'   geom_violin geom_boxplot geom_jitter geom_raster geom_histogram
 #'   geom_bar geom_hline scale_fill_gradient2 scale_color_gradient2
-#' @importFrom forcats fct_rev
 #' @importFrom dplyr pull desc
 #' @importFrom assertthat
 #'   is.count is.flag is.string has_name has_attr

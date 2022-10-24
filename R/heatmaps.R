@@ -281,7 +281,7 @@ plot_heatmap <- function(
 
   # Change factor level of features if ordering.
   if (any(colnames(count_mat) == "row_order")) {
-    count_mat[, feature := fct_rev(forcats::fct_reorder(feature, row_order))]
+    count_mat[, feature := forcats::fct_rev(forcats::fct_reorder(feature, row_order))]
   }
 
   ## Use custom gene groups if set.
@@ -570,7 +570,7 @@ plot_heatmap <- function(
 
   setDT(merged)
   merged[, row_quantile := ntile(aggr_var, n=n_quantiles)]
-  merged[, row_quantile := fct_rev(factor(row_quantile))]
+  merged[, row_quantile := forcats::fct_rev(factor(row_quantile))]
   merged[, aggr_var := NULL]
 
   merged <- merge(count_data, merged, by="feature")

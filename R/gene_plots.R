@@ -129,7 +129,7 @@ plot_detected_features <- function(
     )
 
   if (grouping_status != "none") {
-    p <- p + facet_grid(fct_rev(factor(grouping)) ~ .)
+    p <- p + facet_grid(forcats::fct_rev(factor(grouping)) ~ .)
   }
 
   return(p)

@@ -98,7 +98,7 @@ plot_genomic_distribution <- function(
   if (return_table) return(as.data.frame(genomic_dist))
 
   ## Plot the genomic distribution.
-  p <- ggplot(genomic_dist, aes(x=.data$sample, y=.data$count, fill=fct_rev(.data$simple_annotations))) +
+  p <- ggplot(genomic_dist, aes(x=.data$sample, y=.data$count, fill=forcats::fct_rev(.data$simple_annotations))) +
     geom_col(position="fill", ...) +
     coord_flip() +
     ylab("Fraction") +
