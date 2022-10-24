@@ -188,7 +188,7 @@ retrieve_seqs <- function(
 .out_of_bounds_index <- function(x) {
     if (length(x) == 0L)
         return(integer(0))
-    x_seqnames_id <- as.integer(seqnames(x))
+    x_seqnames_id <- as.integer(GenomeInfoDb::seqnames(x))
     x_seqlengths <- unname(seqlengths(x))
     seqlevel_is_circ <- unname(isCircular(x)) %in% TRUE
     seqlength_is_na <- is.na(x_seqlengths)

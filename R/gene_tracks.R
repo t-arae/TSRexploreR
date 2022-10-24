@@ -254,7 +254,7 @@ gene_tracks <- function(
 
   Gviz::plotTracks(
     tracks,
-    chromosome=seqnames(feature_ranges),
+    chromosome=GenomeInfoDb::seqnames(feature_ranges),
     from=start(feature_ranges),
     to=end(feature_ranges),
     background.title="white",
