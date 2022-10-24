@@ -128,7 +128,7 @@ retrieve_seqs <- function(
   )
 
   ## Add names back to biostrings.
-  seqs <- map2(
+  seqs <- purrr::map2(
     seqs, selected_samples,
     function(x, y) {
       names(x) <- y$FHASH
@@ -138,7 +138,7 @@ retrieve_seqs <- function(
 
   ## Convert to table if required.
   if (return_format == "table") {
-    seqs <- map2(
+    seqs <- purrr::map2(
       seqs, selected_samples,
       function(x, y) {
         x <- as.data.frame(x)
