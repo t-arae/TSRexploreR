@@ -23,7 +23,6 @@ NULL
 NULL
 
 #' @importFrom rtracklayer import export
-#' @importFrom GenomicRanges GRanges
 
 NULL
 
