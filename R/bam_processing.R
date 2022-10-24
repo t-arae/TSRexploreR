@@ -106,7 +106,7 @@ import_bams <- function(
   if (paired) {
     bams <- purrr::map(samples, function(x) {
       bam <- GenomicAlignments::readGAlignmentPairs(
-        x, param=ScanBamParam(
+        x, param=Rsamtools::ScanBamParam(
           what="seq", flag=do.call(scanBamFlag, flag_args)
         )
       )
@@ -119,7 +119,7 @@ import_bams <- function(
   } else {
     bams <- purrr::map(samples, function(x) {
       bam <- GenomicAlignments::readGAlignments(
-        x, param=ScanBamParam(
+        x, param=Rsamtools::ScanBamParam(
           what="seq", flag=do.call(scanBamFlag, flag_args)
         )
       )
