@@ -76,7 +76,7 @@ gene_tracks <- function(
     is.null(genome_annotation) || is.character(genome_annotation) ||
     is(genome_annotation, "TxDb")
   )
-  assertthat::assert_that(is.string(feature_name))
+  assertthat::assert_that(assertthat::is.string(feature_name))
   feature_type <- match.arg(stringr::str_to_lower(feature_type), c("gene", "transcript"))
   assertthat::assert_that(is.character(samples))
   names(samples) <- match.arg(

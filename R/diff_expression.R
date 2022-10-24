@@ -252,7 +252,7 @@ differential_expression <- function(
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  assertthat::assert_that(is.string(comparison_name))
+  assertthat::assert_that(assertthat::is.string(comparison_name))
   comparison_type <- match.arg(
     stringr::str_to_lower(comparison_type),
     c("name", "contrast", "coef")

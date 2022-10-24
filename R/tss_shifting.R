@@ -106,7 +106,7 @@ tss_shift <- function(
     is.numeric(fdr_cutoff) &&
     (fdr_cutoff <= 1 & fdr_cutoff > 0)
   )
-  assertthat::assert_that(is.string(comparison_name))
+  assertthat::assert_that(assertthat::is.string(comparison_name))
 
   ## Retrieve TSSs and TSRs.
   TSSs <- extract_counts(experiment, "tss", c(sample_1["TSS"], sample_2["TSS"]))

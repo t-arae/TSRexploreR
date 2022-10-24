@@ -74,7 +74,7 @@ merge_samples <- function(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
-  assertthat::assert_that(is.null(merge_group) || is.string(merge_group))
+  assertthat::assert_that(is.null(merge_group) || assertthat::is.string(merge_group))
   assertthat::assert_that(
     is.null(merge_list) ||
     (is.list(merge_list) && assertthat::has_attr(merge_list, "names"))

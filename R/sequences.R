@@ -60,7 +60,7 @@ retrieve_seqs <- function(
     stringr::str_to_lower(return_format),
     c("table", "biostrings")
   )
-  assertthat::assert_that(is.null(output_dir) || is.string(output_dir))
+  assertthat::assert_that(is.null(output_dir) || assertthat::is.string(output_dir))
 
   ## Get selected samples.
   selected_samples <- experiment %>%

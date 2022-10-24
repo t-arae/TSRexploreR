@@ -68,7 +68,7 @@ tss_import <- function(
     stringr::str_to_lower(file_type),
     c("auto", "bigwig", "bedgraph", "table", "ctss")
   )
-  assertthat::assert_that(is.string(delim))
+  assertthat::assert_that(assertthat::is.string(delim))
 
   ## Convert sample sheet to data.table.
   sheet_type <- dplyr::case_when(
@@ -97,7 +97,7 @@ tss_import <- function(
       unique
 
     assertthat::assert_that(
-      is.string(file_ext),
+      assertthat::is.string(file_ext),
       msg="All files must have the same file extension."
     )
 
@@ -308,7 +308,7 @@ tsr_import <- function(
     stringr::str_to_lower(file_type),
     c("auto", "table", "bed")
   )
-  assertthat::assert_that(is.string(delim))
+  assertthat::assert_that(assertthat::is.string(delim))
 
   ## Convert sample sheet to data.table.
   sheet_type <- dplyr::case_when(
@@ -337,7 +337,7 @@ tsr_import <- function(
       unique
 
     assertthat::assert_that(
-      is.string(file_ext),
+      assertthat::is.string(file_ext),
       msg="All files must have the same file extension."
     )
 
