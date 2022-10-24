@@ -59,8 +59,8 @@ tss_import <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
@@ -68,7 +68,7 @@ tss_import <- function(
     str_to_lower(file_type),
     c("auto", "bigwig", "bedgraph", "table", "ctss")
   )
-  assert_that(is.string(delim))
+  assertthat::assert_that(is.string(delim))
 
   ## Convert sample sheet to data.table.
   sheet_type <- case_when(
@@ -78,7 +78,7 @@ tss_import <- function(
     is.data.frame(sample_sheet) ~ "table"
   )
 
-  assert_that(sheet_type != "none")
+  assertthat::assert_that(sheet_type != "none")
 
   sample_sheet <- switch(
     sheet_type,
@@ -96,7 +96,7 @@ tss_import <- function(
       str_to_lower %>%
       unique
 
-    assert_that(
+    assertthat::assert_that(
       is.string(file_ext),
       msg="All files must have the same file extension."
     )
@@ -109,7 +109,7 @@ tss_import <- function(
       TRUE ~ "unknown"
     )
 
-    assert_that(
+    assertthat::assert_that(
       file_ext != "unknown",
       msg=str_c(file_ext, "is an unknown format", sep=" ")
     )
@@ -299,8 +299,8 @@ tsr_import <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
@@ -308,7 +308,7 @@ tsr_import <- function(
     str_to_lower(file_type),
     c("auto", "table", "bed")
   )
-  assert_that(is.string(delim))
+  assertthat::assert_that(is.string(delim))
 
   ## Convert sample sheet to data.table.
   sheet_type <- case_when(
@@ -318,7 +318,7 @@ tsr_import <- function(
     is.data.frame(sample_sheet) ~ "table"
   )
 
-  assert_that(sheet_type != "none")
+  assertthat::assert_that(sheet_type != "none")
 
   sample_sheet <- switch(
     sheet_type,
@@ -336,7 +336,7 @@ tsr_import <- function(
       str_to_lower %>%
       unique
 
-    assert_that(
+    assertthat::assert_that(
       is.string(file_ext),
       msg="All files must have the same file extension."
     )
@@ -347,7 +347,7 @@ tsr_import <- function(
       TRUE ~ "unknown"
     )
 
-    assert_that(
+    assertthat::assert_that(
       file_ext != "unknown",
       msg=str_c(file_ext, "is an unknown format", sep=" ")
     )

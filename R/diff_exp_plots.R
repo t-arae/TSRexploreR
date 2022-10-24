@@ -61,15 +61,15 @@ plot_ma <- function(
 ){
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr", "tss_features", "tsr_features")
   )
-  assert_that(is.character(de_comparisons))
-  assert_that(is.count(ncol))
-  assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
-  assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff <= 1 & fdr_cutoff > 0))
+  assertthat::assert_that(is.character(de_comparisons))
+  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
+  assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff <= 1 & fdr_cutoff > 0))
 
   ## Get differential expression tables.
   de_samples <- extract_de(experiment, data_type, de_comparisons)
@@ -157,15 +157,15 @@ plot_volcano <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr", "tss_features", "tsr_features")
   )
-  assert_that(is.character(de_comparisons))
-  assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
-  assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff < 1 & fdr_cutoff >= 0))
-  assert_that(is.count(ncol))
+  assertthat::assert_that(is.character(de_comparisons))
+  assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
+  assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff < 1 & fdr_cutoff >= 0))
+  assertthat::assert_that(is.count(ncol))
 
   ## Get DE data.
   de_samples <- extract_de(experiment, data_type, de_comparisons)
@@ -272,13 +272,13 @@ export_for_enrichment <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr"))
-  assert_that(is.character(de_comparisons))
-  assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
-  assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
-  assert_that(is.flag(keep_unchanged))
-  assert_that(is.null(anno_categories) || is.character(anno_categories))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(de_comparisons))
+  assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
+  assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
+  assertthat::assert_that(is.flag(keep_unchanged))
+  assertthat::assert_that(is.null(anno_categories) || is.character(anno_categories))
 
   ## Get DE comparisons.
   de_samples <- extract_de(experiment, data_type, de_comparisons)
@@ -377,16 +377,16 @@ plot_num_de <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr", "tss_features", "tsr_features")
   )
-  assert_that(is.character(de_comparisons))
-  assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
-  assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
-  assert_that(is.flag(keep_unchanged))
-  assert_that(is.flag(return_table))
+  assertthat::assert_that(is.character(de_comparisons))
+  assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
+  assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
+  assertthat::assert_that(is.flag(keep_unchanged))
+  assertthat::assert_that(is.flag(return_table))
 
   ## Get appropriate samples.
   de_samples <- extract_de(experiment, data_type, de_comparisons)

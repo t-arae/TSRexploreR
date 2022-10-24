@@ -61,21 +61,21 @@ merge_samples <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr")
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold >= 0)
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
-  assert_that(is.null(merge_group) || is.string(merge_group))
-  assert_that(
+  assertthat::assert_that(is.null(merge_group) || is.string(merge_group))
+  assertthat::assert_that(
     is.null(merge_list) ||
     (is.list(merge_list) && has_attr(merge_list, "names"))
   )

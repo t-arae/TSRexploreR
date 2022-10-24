@@ -72,27 +72,27 @@ gene_tracks <- function(
   }
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     is.null(genome_annotation) || is.character(genome_annotation) ||
     is(genome_annotation, "TxDb")
   )
-  assert_that(is.string(feature_name))
   feature_type <- match.arg(str_to_lower(feature_type), c("gene", "transcript"))
-  assert_that(is.character(samples))
+  assertthat::assert_that(is.string(feature_name))
+  assertthat::assert_that(is.character(samples))
   names(samples) <- match.arg(
     str_to_lower(names(samples)),
     c("tss", "tsr"), several.ok=TRUE
   )
-  assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assert_that(is.count(upstream))
-  assert_that(is.count(downstream))
-  assert_that(is.flag(promoter_only))
-  assert_that(is.flag(use_normalized))
-  assert_that(is.character(tss_colors))
-  assert_that(is.character(tsr_colors))
-  assert_that(is.numeric(axis_scale) && axis_scale > 0)
-  assert_that(is.na(ymax) || is.numeric(ymax))
+  assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
+  assertthat::assert_that(is.count(upstream))
+  assertthat::assert_that(is.count(downstream))
+  assertthat::assert_that(is.flag(promoter_only))
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(is.character(tss_colors))
+  assertthat::assert_that(is.character(tsr_colors))
+  assertthat::assert_that(is.numeric(axis_scale) && axis_scale > 0)
+  assertthat::assert_that(is.na(ymax) || is.numeric(ymax))
   anno_pos <- match.arg(
     str_to_lower(anno_pos),
     c("top", "bottom")

@@ -86,27 +86,27 @@ tss_shift <- function(
 ){
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(
     (is.character(sample_1) && length(sample_1) == 2) &&
     has_name(sample_1, c("TSS", "TSR"))
   )
-  assert_that(
+  assertthat::assert_that(
     (is.character(sample_2) && length(sample_2) == 2) &&
     has_name(sample_2, c("TSS", "TSR"))
   )
-  assert_that(
+  assertthat::assert_that(
     is.null(tss_threshold) ||
     (is.numeric(tss_threshold) && tss_threshold >= 0)
   )
-  assert_that(is.count(max_distance))
-  assert_that(is.count(min_threshold) && min_threshold > 5)
-  assert_that(is.integer(n_resamples) && n_resamples >= 100L)
-  assert_that(
+  assertthat::assert_that(is.count(max_distance))
+  assertthat::assert_that(is.count(min_threshold) && min_threshold > 5)
+  assertthat::assert_that(is.integer(n_resamples) && n_resamples >= 100L)
+  assertthat::assert_that(
     is.numeric(fdr_cutoff) &&
     (fdr_cutoff <= 1 & fdr_cutoff > 0)
   )
-  assert_that(is.string(comparison_name))
+  assertthat::assert_that(is.string(comparison_name))
 
   ## Retrieve TSSs and TSRs.
   TSSs <- extract_counts(experiment, "tss", c(sample_1["TSS"], sample_2["TSS"]))

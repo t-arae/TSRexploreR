@@ -37,10 +37,10 @@ tsr_metrics <- function(
 ) {
 
   ## Input Checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.numeric(iqr_lower) && (iqr_lower > 0 & iqr_lower < 1))
-  assert_that(is.numeric(iqr_upper) && (iqr_upper > 0 & iqr_upper < 1))
-  assert_that(iqr_lower < iqr_upper)
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.numeric(iqr_lower) && (iqr_lower > 0 & iqr_lower < 1))
+  assertthat::assert_that(is.numeric(iqr_upper) && (iqr_upper > 0 & iqr_upper < 1))
+  assertthat::assert_that(iqr_lower < iqr_upper)
 
   ## Get samples from TSRexploreR object.
   select_samples <- experiment %>%

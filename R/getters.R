@@ -28,12 +28,12 @@ get_granges <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr")
   )
-  assert_that(is.character(samples))
+  assertthat::assert_that(is.character(samples))
 
   ## Get sample names.
   if (samples == "all") {
@@ -84,12 +84,12 @@ get_counts <- function(
 ) {
   
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr")
   )
-  assert_that(is.character(samples))
+  assertthat::assert_that(is.character(samples))
 
   ## Get sample names.
   if (samples == "all") {
@@ -135,7 +135,7 @@ get_annotation <- function(
 ) {
 
   ## Input check.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
 
   ## Get genome annotation.
   an <- experiment@meta_data$genome_annotation
@@ -167,7 +167,7 @@ get_assembly <- function(
 ) {
 
   ## Input check.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
 
   ## Get genome annotation.
   as <- experiment@meta_data$genome_assembly
@@ -201,7 +201,7 @@ get_sample_sheet <- function(
 ) {
 
   ## Input check.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
 
   ## Get the sample sheet.
   ss <- experiment@meta_data$sample_sheet
@@ -249,8 +249,8 @@ get_shifting_results <- function(
 ) {
 
   ## Input check.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
 
   ## Get sample names.
   if (all(samples == "all")) {
@@ -301,7 +301,7 @@ get_diff_model <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr")
@@ -362,12 +362,12 @@ get_diff_results <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
   data_type <- match.arg(
     str_to_lower(data_type),
     c("tss", "tsr")
   )
-  assert_that(is.character(samples))
+  assertthat::assert_that(is.character(samples))
 
   ## Get the sample names.
   if (all(samples == "all")) {

@@ -57,19 +57,19 @@ plot_tsr_metric <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(tsr_metrics))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(tsr_metrics))
   plot_type <- match.arg(
     str_to_lower(plot_type),
     c("violin", "jitter", "box", "boxjitter")
   )
-  assert_that(is.character(samples))
-  assert_that(is.flag(log2_transform))
-  assert_that(is.count(ncol))
-  assert_that(is.flag(use_normalized))
-  assert_that(is.flag(dominant))
-  assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assert_that(is.null(data_conditions) || is.list(data_conditions))
+  assertthat::assert_that(is.character(samples))
+  assertthat::assert_that(is.flag(log2_transform))
+  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(is.flag(dominant))
+  assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
+  assertthat::assert_that(is.null(data_conditions) || is.list(data_conditions))
 
   ## Get data.
   selected_data <- experiment %>%

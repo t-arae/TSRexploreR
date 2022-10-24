@@ -55,11 +55,11 @@ softclip_composition <- function(
 ) {
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
-  assert_that(is.null(n_bases) || is.count(n_bases))
-  assert_that(is.count(ncol))
-  assert_that(is.flag(return_table))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
+  assertthat::assert_that(is.null(n_bases) || is.count(n_bases))
+  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(is.flag(return_table))
 
   ## Retrieve selected samples.
   if (all(samples == "all")) {
@@ -180,11 +180,11 @@ softclip_histogram <- function(
 ) {
 
   ## Check inputs.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
-  assert_that(is.null(n_bases) || is.count(n_bases))
-  assert_that(is.count(ncol))
-  assert_that(is.flag(return_table))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
+  assertthat::assert_that(is.null(n_bases) || is.count(n_bases))
+  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(is.flag(return_table))
 
   ## Get samples.
   if (all(samples == "all")) {

@@ -55,11 +55,11 @@ plot_reduction <- function(
   }
 
   ## Input checks.
-  assert_that(is(experiment, "tsr_explorer"))
-  assert_that(is.character(samples))
   data_type <- match.arg(str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  assert_that(is.flag(use_normalized))
-  assert_that(is.null(remove_var) || (remove_var > 0 & remove_var < 1))
+  assertthat::assert_that(is(experiment, "tsr_explorer"))
+  assertthat::assert_that(is.character(samples))
+  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(is.null(remove_var) || (remove_var > 0 & remove_var < 1))
 
   ## Grab counts.
   count_mat <- experiment %>%
