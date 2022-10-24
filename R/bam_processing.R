@@ -299,7 +299,7 @@ G_correction <- function(
     x[
       plus_one == "G" & n_soft == 0,
       start := ifelse(
-        rbinom(nrow(x[plus_one == "G" & n_soft == 0]), 1, sfreq) == 1,
+        stats::rbinom(nrow(x[plus_one == "G" & n_soft == 0]), 1, sfreq) == 1,
         ifelse(strand == "+", start + 1, start - 1),
         start
       )
