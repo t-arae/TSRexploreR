@@ -92,7 +92,7 @@ tss_import <- function(
     file_ext <- sample_sheet[, .(file_1, file_2)] %>%
       unlist %>%
       discard(is.na) %>%
-      str_extract("(?<=\\.)[[:alpha:]]+$") %>%
+      stringr::str_extract("(?<=\\.)[[:alpha:]]+$") %>%
       stringr::str_to_lower() %>%
       unique
 
@@ -332,7 +332,7 @@ tsr_import <- function(
     file_ext <- sample_sheet[, .(file_1, file_2)] %>%
       unlist %>%
       discard(is.na) %>%
-      str_extract("(?<=\\.)[[:alpha:]]+$") %>%
+      stringr::str_extract("(?<=\\.)[[:alpha:]]+$") %>%
       stringr::str_to_lower() %>%
       unique
 

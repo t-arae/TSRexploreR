@@ -132,8 +132,8 @@ import_bams <- function(
   walk(bams, function(x) {
     x[, n_soft := as.numeric(ifelse(
       strand == "+",
-      str_extract(cigar, "^[[:digit:]]+(?=S)"), # For + strand soft-clip is at cigar beginning.
-      str_extract(cigar, "[[:digit:]]+S$")      # For - strand soft-clip is at cigar end.
+      stringr::str_extract(cigar, "^[[:digit:]]+(?=S)"), # For + strand soft-clip is at cigar beginning.
+      stringr::str_extract(cigar, "[[:digit:]]+S$")      # For - strand soft-clip is at cigar end.
     ))][,
       n_soft := replace_na(n_soft, 0)
     ][
