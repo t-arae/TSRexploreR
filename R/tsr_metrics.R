@@ -227,7 +227,7 @@ iq_range <- function(tss_table, iqr_upper, iqr_lower) {
   ]
 
   iqr_results <- tss_position[
-    dplyr::between(ecdf, iqr_lower, iqr_upper)
+    dplyr::between(stats::ecdf, iqr_lower, iqr_upper)
   ][,
     .(iqr_min=min(cum_sum),
     iqr_max=max(cum_sum),
@@ -249,7 +249,7 @@ iq_range <- function(tss_table, iqr_upper, iqr_lower) {
 ## @param tss_vector Vector of values to compute ECDF values
 
 ecdf_function <- function(tss_vector) {
-  ecdf_func <- ecdf(tss_vector)
+  ecdf_func <- stats::ecdf(tss_vector)
   ecdf_values <- ecdf_func(tss_vector)
   return(ecdf_values)
 }

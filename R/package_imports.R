@@ -1,5 +1,5 @@
 #' @import data.table
-#' @importFrom stats as.formula cor ecdf
+#' @importFrom stats as.formula cor
 
 NULL
 
