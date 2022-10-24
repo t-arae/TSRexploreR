@@ -258,7 +258,7 @@ quantiling <- function(
 #' @description
 #' Apply strategies for filtering, ordering, quantiling, and/or grouping of data.
 #'
-#' @importFrom dplyr dense_rank ntile desc
+#' @importFrom dplyr dense_rank ntile
 #'
 #' @param signal_data TSS or TSR data.
 #' @param data_conditions List of conditions.
