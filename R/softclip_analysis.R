@@ -93,7 +93,7 @@ softclip_composition <- function(
     seq_soft := stringr::str_c(rep("-", max_bases), collapse="")
   ][
     n_soft > 0,
-    seq_soft := str_pad(seq_soft, max_bases, "left", "-")
+    seq_soft := stringr::str_pad(seq_soft, max_bases, "left", "-")
   ][,
     c(as.character(seq(-max_bases, -1, 1))) := tstrsplit(seq_soft, "")
   ][,
