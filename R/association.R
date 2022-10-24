@@ -98,7 +98,7 @@ associate_with_tsr <- function(
       return(overlap)
     })
   })
-  tss <- flatten(tss)
+  tss <- purrr::flatten(tss)
 
   ## Add TSSs back to the TSRexploreR object.
   experiment <- set_count_slot(
