@@ -4,7 +4,6 @@
 
 NULL
 
-#' @importFrom tidyr pivot_longer
 #' @importFrom ggplot2
 #'   labs ylab xlab ylim xlim
 #'   ggplot aes coord_flip
