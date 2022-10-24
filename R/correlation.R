@@ -2,7 +2,7 @@
 #'
 #' Analyze sample similarity with correlation analysis.
 #'
-#' @importFrom grid gpar grid.text
+#' @importFrom grid gpar
 #'
 #' @inheritParams common_params
 #' @param data_type Whether to correlate TSSs ('tss') or TSRs ('tsr').
@@ -132,7 +132,7 @@ plot_correlation <- function(
   if (show_values) {
     heatmap_args <- c(heatmap_args, list(
       cell_fun=function(j, i, x, y, width, height, fill) {
-        grid.text(sprintf("%.2f", cor_mat[i, j]), x, y, gp=gpar(fontsize=font_size))
+        grid::grid.text(sprintf("%.2f", cor_mat[i, j]), x, y, gp=gpar(fontsize=font_size))
       }
     ))
   }
