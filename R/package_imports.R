@@ -28,7 +28,6 @@ NULL
 #'   as_granges stretch join_overlap_left_directed mutate
 #'   anchor_3p anchor_5p anchor_center
 #'   bind_ranges reduce_ranges_directed
-#' @importFrom Biostrings getSeq
 #' @importFrom Rsamtools ScanBamParam scanBamFlag
 
 NULL
