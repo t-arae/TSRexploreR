@@ -117,7 +117,7 @@ plot_dinucleotide_frequencies <- function(
   freqs[,
     mean_freq := mean(freqs), by=dinucleotide
   ][,
-    rank := dense_rank(mean_freq)
+    rank := dplyr::dense_rank(mean_freq)
   ][,
     dinucleotide := forcats::fct_reorder(dinucleotide, rank)
   ]
