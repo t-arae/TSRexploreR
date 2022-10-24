@@ -102,7 +102,7 @@ plot_detected_features <- function(
   plot_data[, count_type := factor(
     count_type, levels=c("without_promoter", "with_promoter")
   )][,
-    count_type := fct_recode(
+    count_type := forcats::fct_recode(
       count_type,
       "Outside of Promoter"="without_promoter",
       "Within Promoter"="with_promoter"
