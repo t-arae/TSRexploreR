@@ -138,9 +138,9 @@ annotate_features <- function(
   annotated[,
     simple_annotations := dplyr::case_when(
       annotation == "Promoter" ~ "Promoter",
-      str_detect(annotation, pattern="(Exon|UTR)") ~ "Exon",
-      str_detect(annotation, pattern="Intron") ~ "Intron",
-      str_detect(annotation, pattern="Downstream") ~ "Downstream",
+      stringr::str_detect(annotation, pattern="(Exon|UTR)") ~ "Exon",
+      stringr::str_detect(annotation, pattern="Intron") ~ "Intron",
+      stringr::str_detect(annotation, pattern="Downstream") ~ "Downstream",
       annotation == "Distal Intergenic" ~ "Intergenic"
     )
   ]
