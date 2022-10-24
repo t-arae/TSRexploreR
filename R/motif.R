@@ -393,7 +393,7 @@ plot_sequence_colormap <- function(
 
   ## Get order of TSSs for plotting.
   if (!is.null(data_conditions$ordering))  {
-    seq_data[, FHASH := fct_reorder(FHASH, row_order)]
+    seq_data[, FHASH := forcats::fct_reorder(FHASH, row_order)]
   }
 
   ## Format data for plotting.

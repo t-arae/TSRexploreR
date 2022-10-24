@@ -77,9 +77,9 @@ plot_shift_rank <- function(
   select_samples[, FID := as.character(seq_len(nrow(select_samples)))]
 
   if (score_order == "descending") {
-    select_samples[, FID := fct_reorder(FID, shift_score, .desc=TRUE)]
+    select_samples[, FID := forcats::fct_reorder(FID, shift_score, .desc=TRUE)]
   } else {
-    select_samples[, FID := fct_reorder(FID, shift_score, .desc=FALSE)]
+    select_samples[, FID := forcats::fct_reorder(FID, shift_score, .desc=FALSE)]
   }
 
   ## Set sample order if required.

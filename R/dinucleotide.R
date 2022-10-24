@@ -119,7 +119,7 @@ plot_dinucleotide_frequencies <- function(
   ][,
     rank := dense_rank(mean_freq)
   ][,
-    dinucleotide := fct_reorder(dinucleotide, rank)
+    dinucleotide := forcats::fct_reorder(dinucleotide, rank)
   ]
 
   ## Order samples if required.

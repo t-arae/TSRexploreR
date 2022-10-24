@@ -281,7 +281,7 @@ plot_heatmap <- function(
 
   # Change factor level of features if ordering.
   if (any(colnames(count_mat) == "row_order")) {
-    count_mat[, feature := fct_rev(fct_reorder(feature, row_order))]
+    count_mat[, feature := fct_rev(forcats::fct_reorder(feature, row_order))]
   }
 
   ## Use custom gene groups if set.
