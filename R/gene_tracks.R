@@ -121,7 +121,7 @@ gene_tracks <- function(
   ## If not promoter only, expand ranges.
   if (!promoter_only) {
     feature_ranges <- feature_ranges %>%
-      anchor_5p %>%
+      plyranges::anchor_5p() %>%
       stretch(downstream) %>%
       anchor_3p %>%
       stretch(upstream)

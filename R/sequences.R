@@ -97,7 +97,7 @@ retrieve_seqs <- function(
   ## Expand ranges downstream if requested.
   if (!is.null(extend_downstream)) {
     selected_samples <- selected_samples %>%
-      anchor_5p %>%
+      plyranges::anchor_5p() %>%
       stretch(extend_downstream)
   }
 
