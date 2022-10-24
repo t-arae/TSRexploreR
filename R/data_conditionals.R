@@ -424,7 +424,7 @@ condition_data <- function(
     as_granges %>%
     reduce_ranges_directed %>%
     as.data.table(key=c("seqnames", "strand", "start", "end"))
-  cranges[, CFHASH := str_c(seqnames, start, end, strand, sep=":")]
+  cranges[, CFHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
 
   ## Filter out samples not being used to calculate ordering.
   if (!is.null(conditionals$samples)) {

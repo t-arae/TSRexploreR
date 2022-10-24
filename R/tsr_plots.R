@@ -96,7 +96,7 @@ plot_tsr_metric <- function(
     ]
     setnames(
       selected_data, old=tsr_metrics,
-      new=str_c("Log2(", tsr_metrics, " + 1)")
+      new=stringr::str_c("Log2(", tsr_metrics, " + 1)")
     )
     selected_data <- as.data.table(selected_data)
   }
@@ -105,7 +105,7 @@ plot_tsr_metric <- function(
   if (log2_transform) {
     selected_data <- melt(
       selected_data,
-      measure.vars=str_c("Log2(", tsr_metrics, " + 1)"),
+      measure.vars=stringr::str_c("Log2(", tsr_metrics, " + 1)"),
       variable.name="metric"
     )
   } else {

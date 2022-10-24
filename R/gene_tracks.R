@@ -229,8 +229,8 @@ gene_tracks <- function(
   tracks <- imap(samples, function(x, y) {
     track <- list()
     if (y == "tss") {
-      track[[str_c(x, ".pos")]] <- tss_tracks[[str_c(x, ".pos")]]
-      track[[str_c(x, ".neg")]] <- tss_tracks[[str_c(x, ".neg")]]
+      track[[stringr::str_c(x, ".pos")]] <- tss_tracks[[stringr::str_c(x, ".pos")]]
+      track[[stringr::str_c(x, ".neg")]] <- tss_tracks[[stringr::str_c(x, ".neg")]]
     } else if (y == "tsr") {
       track[[x]] <- tsr_tracks[[x]]
     }

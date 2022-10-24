@@ -90,7 +90,7 @@ softclip_composition <- function(
 
   select_samples[
     n_soft == 0,
-    seq_soft := str_c(rep("-", max_bases), collapse="")
+    seq_soft := stringr::str_c(rep("-", max_bases), collapse="")
   ][
     n_soft > 0,
     seq_soft := str_pad(seq_soft, max_bases, "left", "-")

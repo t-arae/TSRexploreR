@@ -172,7 +172,7 @@ merge_samples <- function(
     ]
   }
 
-  samples[, FHASH := str_c(seqnames, start, end, strand, sep=":")]
+  samples[, FHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
 
   return(samples)
 }
@@ -250,7 +250,7 @@ merge_samples <- function(
     ), by=group_ID]
   }
   overlaps[, group_ID := NULL]
-  overlaps[, FHASH := str_c(seqnames, start, end, strand, sep=":")]
+  overlaps[, FHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
 
   return(overlaps)
 }

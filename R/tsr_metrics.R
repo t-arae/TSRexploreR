@@ -232,7 +232,7 @@ iq_range <- function(tss_table, iqr_upper, iqr_lower) {
     .(iqr_min=min(cum_sum),
     iqr_max=max(cum_sum),
     iqr_width=max(tss_pos) - min(tss_pos),
-    iqr_coords=str_c(seqnames, min(start), max(start), strand, sep=":")),
+    iqr_coords=stringr::str_c(seqnames, min(start), max(start), strand, sep=":")),
     by=.(sample, TSR_FHASH)
   ]
   iqr_results <- unique(iqr_results)

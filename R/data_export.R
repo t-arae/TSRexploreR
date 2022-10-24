@@ -104,14 +104,14 @@ tss_export <- function(
       pos_data <- x[strand(x) == "+"]
       pos_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_pos.bedgraph")
+        stringr::str_c(y, "_pos.bedgraph")
       )
       export(pos_data, pos_file, "bedgraph")
 
       min_data <- x[strand(x) == "-"]
       min_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_min.bedgraph")
+        stringr::str_c(y, "_min.bedgraph")
       )
       export(min_data, min_file, "bedgraph")
     })
@@ -119,7 +119,7 @@ tss_export <- function(
     iwalk(export_samples, function(x, y) {
       export_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_TSSs.tsv")
+        stringr::str_c(y, "_TSSs.tsv")
       )
       fwrite(
         x, export_file, sep=sep, col.names=TRUE,
@@ -131,14 +131,14 @@ tss_export <- function(
       pos_data <- x[strand(x) == "+"]
       pos_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_pos.bigwig") 
+        stringr::str_c(y, "_pos.bigwig") 
       )
       export(pos_data, pos_file, "bigwig")
 
       min_data <- x[strand(x) == "-"]
       min_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_min.bigwig")
+        stringr::str_c(y, "_min.bigwig")
       )
       export(min_data, min_file, "bigwig")
     })
@@ -221,7 +221,7 @@ tsr_export <- function(
 
       bed_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_TSRs.bed")
+        stringr::str_c(y, "_TSRs.bed")
       )
 
       export(x, bed_file, "bed")
@@ -230,7 +230,7 @@ tsr_export <- function(
     iwalk(export_samples, function(x, y) {
       export_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
-        str_c(y, "_TSRs.tsv")
+        stringr::str_c(y, "_TSRs.tsv")
       )
 
       fwrite(

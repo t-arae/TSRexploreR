@@ -111,7 +111,7 @@ tss_import <- function(
 
     assertthat::assert_that(
       file_ext != "unknown",
-      msg=str_c(file_ext, "is an unknown format", sep=" ")
+      msg=stringr::str_c(file_ext, "is an unknown format", sep=" ")
     )
   }
 
@@ -349,7 +349,7 @@ tsr_import <- function(
 
     assertthat::assert_that(
       file_ext != "unknown",
-      msg=str_c(file_ext, "is an unknown format", sep=" ")
+      msg=stringr::str_c(file_ext, "is an unknown format", sep=" ")
     )
   }
 
