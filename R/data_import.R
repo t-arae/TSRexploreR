@@ -165,12 +165,12 @@ tss_import <- function(
     purrr::map(function(x) {
       # Import positive strand.
       pos=x[, file_1]
-      pos <- import(pos, "bedgraph")
+      pos <- rtracklayer::import(pos, "bedgraph")
       strand(pos) <- "+"
 
       # Import minus strand.
       neg=x[, file_2]
-      neg <- import(neg, "bedgraph")
+      neg <- rtracklayer::import(neg, "bedgraph")
       strand(neg) <- "-"
 
       # Combine positive and negative strand.
@@ -195,12 +195,12 @@ tss_import <- function(
     purrr::map(function(x) {
       # Import positive strand.
       pos=x[, file_1]
-      pos <- import(pos, "bigwig")
+      pos <- rtracklayer::import(pos, "bigwig")
       strand(pos) <- "+"
 
       # Import minus strand.
       neg=x[, file_2]
-      neg <- import(neg, "bigwig")
+      neg <- rtracklayer::import(neg, "bigwig")
       strand(neg) <- "-"
 
       # Combine positive and negative strand.
@@ -383,7 +383,7 @@ tsr_import <- function(
     purrr::map(function(x) {
       x <- x %>%
         as.character %>%
-        import("bed") %>%
+        rtracklayer::import("bed") %>%
         sort
       return(x)
     })

@@ -22,7 +22,7 @@ NULL
 
 NULL
 
-#' @importFrom rtracklayer import export
+#' @importFrom rtracklayer export
 
 NULL
 
