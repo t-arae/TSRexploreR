@@ -155,7 +155,7 @@ retrieve_seqs <- function(
 
   ## Save files if output directory is set.
   if (!is.null(output_dir)) {
-    iwalk(seqs, function(x, y) {
+    purrr::iwalk(seqs, function(x, y) {
       file_name <- switch(
         return_format,
         "biostrings"=file.path(output_dir, stringr::str_c(y, ".fasta")),

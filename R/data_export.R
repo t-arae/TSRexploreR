@@ -98,7 +98,7 @@ tss_export <- function(
 
   ## Export files.
   if (file_type == "bedgraph") {
-    iwalk(export_samples, function(x, y) {
+    purrr::iwalk(export_samples, function(x, y) {
       x <- sort(as_granges(x))
       
       pos_data <- x[strand(x) == "+"]
@@ -116,7 +116,7 @@ tss_export <- function(
       export(min_data, min_file, "bedgraph")
     })
   } else if (file_type == "table") {
-    iwalk(export_samples, function(x, y) {
+    purrr::iwalk(export_samples, function(x, y) {
       export_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_TSSs.tsv")
@@ -127,7 +127,7 @@ tss_export <- function(
       )
     })
   } else if (file_type == "bigwig") {
-    iwalk(export_samples, function(x, y) {
+    purrr::iwalk(export_samples, function(x, y) {
       pos_data <- x[strand(x) == "+"]
       pos_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
@@ -216,7 +216,7 @@ tsr_export <- function(
 
   ## Export files.
   if (file_type == "bed") {
-    iwalk(export_samples, function(x, y) {
+    purrr::iwalk(export_samples, function(x, y) {
       x <- as_granges(x)
 
       bed_file <- file.path(
@@ -227,7 +227,7 @@ tsr_export <- function(
       export(x, bed_file, "bed")
     })
   } else if (file_type == "table") {
-    iwalk(export_samples, function(x, y) {
+    purrr::iwalk(export_samples, function(x, y) {
       export_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_TSRs.tsv")
