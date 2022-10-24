@@ -73,11 +73,11 @@ tsr_explorer <- function(
   ## Input Check.
   assertthat::assert_that(
     all(is.na(TSSs)) ||
-   (is.list(TSSs) && has_attr(TSSs, "names"))
+   (is.list(TSSs) && assertthat::has_attr(TSSs, "names"))
   )
   assertthat::assert_that(
     all(is.na(TSRs)) ||
-    (is.list(TSRs) && has_attr(TSRs, "names"))
+    (is.list(TSRs) && assertthat::has_attr(TSRs, "names"))
   )
   assertthat::assert_that(
     is.null(sample_sheet) ||

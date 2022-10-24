@@ -74,14 +74,14 @@ conditionals <- function(
   assertthat::assert_that(
     is.null(data_ordering) || (
       is.list(data_ordering) && 
-      has_attr(data_ordering, "condition_type") &&
+      assertthat::has_attr(data_ordering, "condition_type") &&
       attributes(data_ordering)$condition_type == "ordering"
     )
   )
   assertthat::assert_that(
     is.null(data_quantiling) || (
       is.list(data_quantiling) &&
-      has_attr(data_quantiling, "condition_type") &&
+      assertthat::has_attr(data_quantiling, "condition_type") &&
       attributes(data_quantiling)$condition_type == "quantiling"
     )
   )
@@ -272,7 +272,7 @@ condition_data <- function(
   assertthat::assert_that(
     is.null(data_conditions) || (
       is.list(data_conditions) &&
-      has_attr(data_conditions, "data_conditions")
+      assertthat::has_attr(data_conditions, "data_conditions")
     )
   )
 

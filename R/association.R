@@ -41,7 +41,7 @@ associate_with_tsr <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(
     is.null(sample_list) ||
-    (is.list(sample_list) && has_attr(sample_list, "names"))
+    (is.list(sample_list) && assertthat::has_attr(sample_list, "names"))
   )
 
   ## Get TSSs.

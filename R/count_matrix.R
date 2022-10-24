@@ -13,7 +13,7 @@
 ) {
 
   ## Input check.
-  assertthat::assert_that(is.list(count_data) && has_attr(count_data, "names"))
+  assertthat::assert_that(is.list(count_data) && assertthat::has_attr(count_data, "names"))
   data_type <- match.arg(
     stringr::str_to_lower(data_type),
     c("tss", "tsr")

@@ -180,13 +180,13 @@ plot_heatmap <- function(
   assertthat::assert_that(is.null(quantile_samples) || is.character(quantile_samples))
   assertthat::assert_that(
     is.null(split_by) ||
-    (is.list(split_by) && has_attr(split_by, "names")) ||
+    (is.list(split_by) && assertthat::has_attr(split_by, "names")) ||
     (is.data.frame(split_by) && colnames(split_by) %in% c("feature", "split_group"))
   )
   assertthat::assert_that(
     is.null(diff_heatmap_list) ||
     (is.list(diff_heatmap_list) &&
-    has_attr(diff_heatmap_list, "names") &&
+    assertthat::has_attr(diff_heatmap_list, "names") &&
     all(lengths(diff_heatmap_list) == 2))
   )
 

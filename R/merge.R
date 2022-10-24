@@ -77,7 +77,7 @@ merge_samples <- function(
   assertthat::assert_that(is.null(merge_group) || is.string(merge_group))
   assertthat::assert_that(
     is.null(merge_list) ||
-    (is.list(merge_list) && has_attr(merge_list, "names"))
+    (is.list(merge_list) && assertthat::has_attr(merge_list, "names"))
   )
   if (is.null(merge_group) & is.null(merge_list)) {
     stop("Either 'merge_group' or 'merge_list' must be specified")
