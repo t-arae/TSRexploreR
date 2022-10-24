@@ -123,7 +123,7 @@ gene_tracks <- function(
     feature_ranges <- feature_ranges %>%
       plyranges::anchor_5p() %>%
       stretch(downstream) %>%
-      anchor_3p %>%
+      plyranges::anchor_3p() %>%
       stretch(upstream)
   }
 

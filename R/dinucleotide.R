@@ -84,7 +84,7 @@ plot_dinucleotide_frequencies <- function(
   ## Extend ranges to capture base before TSS.
   select_samples <- select_samples %>%
     as_granges %>%
-    anchor_3p %>%
+    plyranges::anchor_3p() %>%
     plyranges::mutate(width=2)
 
   ## Get dinucleotides.
