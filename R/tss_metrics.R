@@ -75,7 +75,7 @@ mark_dominant <- function(
 
   ## Mark dominant TSS per gene if requested.
   if (data_type == "tss" & mark_per == "gene") {
-    dominant <- map(select_samples, function(x) {
+    dominant <- purrr::map(select_samples, function(x) {
       x[
         !is.na(TSR_FHASH),
         dominant := (
@@ -94,7 +94,7 @@ mark_dominant <- function(
     
   ## Mark the dominant TSR per gene if requested.
   } else if (data_type == "tsr") {
-    dominant <- map(select_samples, function(x) {
+    dominant <- purrr::map(select_samples, function(x) {
       x[,
         dominant := (
           score == max(score) &
@@ -112,7 +112,7 @@ mark_dominant <- function(
     
   ## Mark the dominant TSS per TSR if requested.
   } else if (data_type == "tss" & mark_per == "default") {
-    dominant <- map(select_samples, function(x) {
+    dominant <- purrr::map(select_samples, function(x) {
       x[
         !is.na(TSR_FHASH),
         dominant := (

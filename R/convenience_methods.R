@@ -91,7 +91,7 @@ extract_counts <- function(experiment, data_type, samples, use_normalized=FALSE)
   }
 
   ## Return counts as copies so you don't unintentionally overwrite the TSRexploreR object values.
-  return_samples <- map(selected_samples, copy)
+  return_samples <- purrr::map(selected_samples, copy)
 
   ## Return CPM score if requested.
   if (use_normalized) {

@@ -66,11 +66,11 @@ tss_clustering <- function(
       select_samples[, .n_samples := NULL]
       select_samples <- split(select_samples, by="samples", keep.by=FALSE)
     } else {
-      select_samples <- map(select_samples, ~.x[score > threshold])
+      select_samples <- purrr::map(select_samples, ~.x[score > threshold])
     }
   }
 
-  select_samples <- map(select_samples, function(x) {
+  select_samples <- purrr::map(select_samples, function(x) {
     keep_cols <- c("seqnames", "start", "end", "strand", "score")
     if (any(colnames(x) == "normalized_score")) {
       keep_cols <- c(keep_cols, "normalized_score")
@@ -81,13 +81,13 @@ tss_clustering <- function(
   })
   
   ## Cluster TSSs into TSRs.
-  clustered_TSSs <- map(
+  clustered_TSSs <- purrr::map(
     select_samples, .aggr_scores,
     max_distance, max_width, singlet_threshold
   )
 
   ## Add TSRs back to TSRexploreR object.
-  clustered_TSSs <- map(clustered_TSSs, function(x) {
+  clustered_TSSs <- purrr::map(clustered_TSSs, function(x) {
     x <- as.data.table(x)
     x[,
       FHASH := stringr::str_c(seqnames, start, end, strand, sep=":"),
@@ -96,7 +96,7 @@ tss_clustering <- function(
     return(x)
   })
 
-  TSR_granges <- map(clustered_TSSs, function(x) {
+  TSR_granges <- purrr::map(clustered_TSSs, function(x) {
     keep_cols <- c("seqnames", "start", "end", "strand", "score")
     if (any(colnames(x) == "normalized_score")) {
       keep_cols <- c(keep_cols, "normalized_score")

@@ -34,7 +34,7 @@
 
     # Reduce overlapping ranges.
     merged_ranges <- count_data %>%
-      map(as_granges) %>%
+      purrr::map(as_granges) %>%
       bind_ranges %>%
       reduce_ranges_directed %>%
       as.data.table
@@ -49,7 +49,7 @@
     ]
 
     # Get the aggregated score for reduced ranges.
-    count_data <- map(count_data, function(x) {
+    count_data <- purrr::map(count_data, function(x) {
       setkey(x, seqnames, strand, start, end)
       x <- foverlaps(x, merged_ranges)
       x <- x[, .(score=sum(score)), by=FHASH]

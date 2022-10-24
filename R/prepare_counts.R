@@ -52,7 +52,7 @@ format_counts <- function(
 
   ## Turn counts into data.table
   if (data_type %in% c("tss", "tsr")) {
-    raw_counts <- map(select_samples, function(x) {
+    raw_counts <- purrr::map(select_samples, function(x) {
       x <- as.data.table(x)
       x[, FHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
       return(x)

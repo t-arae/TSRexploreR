@@ -104,7 +104,7 @@ import_bams <- function(
 
   ## Import BAMs.
   if (paired) {
-    bams <- map(samples, function(x) {
+    bams <- purrr::map(samples, function(x) {
       bam <- GenomicAlignments::readGAlignmentPairs(
         x, param=ScanBamParam(
           what="seq", flag=do.call(scanBamFlag, flag_args)
@@ -117,7 +117,7 @@ import_bams <- function(
       return(bam)
     })
   } else {
-    bams <- map(samples, function(x) {
+    bams <- purrr::map(samples, function(x) {
       bam <- GenomicAlignments::readGAlignments(
         x, param=ScanBamParam(
           what="seq", flag=do.call(scanBamFlag, flag_args)
@@ -147,7 +147,7 @@ import_bams <- function(
   })
 
   ## Remove reads with too many soft-clipped bases.
-  bams <- map(bams, ~ .x[is.na(n_soft) | n_soft <= soft_remove])
+  bams <- purrr::map(bams, ~ .x[is.na(n_soft) | n_soft <= soft_remove])
 
   ## Convert to GRanges.
   purrr::walk(bams, function(x) {
@@ -159,7 +159,7 @@ import_bams <- function(
     x[, cigar := NULL]
   })
 
-  bams <- map(bams, as_granges)
+  bams <- purrr::map(bams, as_granges)
 
   ## Add GRanges and sample sheet to TSRexploreR object.
   experiment@experiment$TSSs <- bams
@@ -203,7 +203,7 @@ tss_aggregate <- function(experiment) {
   samples <- experiment@experiment$TSSs
 
   ## Aggregate TSSs.
-  samples <- map(samples, function(x) {
+  samples <- purrr::map(samples, function(x) {
     x <- as.data.table(x)
     x <- x[, .(score=.N), by=.(seqnames, start, end, strand)]
     x <- as_granges(x)
@@ -276,7 +276,7 @@ G_correction <- function(
   select_samples <- experiment@experiment$TSSs
 
   ## Retrieve +1 base.
-  select_samples <- map(select_samples, function(x) {
+  select_samples <- purrr::map(select_samples, function(x) {
     seq <- switch(
       assembly_type,
       "fafile"=Rsamtools::getSeq(assembly, x),
@@ -288,7 +288,7 @@ G_correction <- function(
   })
 
   ## Correct for frequency of soft-clipped Gs and templated Gs.
-  select_samples <- map(select_samples, function(x) {
+  select_samples <- purrr::map(select_samples, function(x) {
 
     # Frequency of soft-clipped Gs.
     sfreq <- x[, .(count=.N), by=seq_soft]
@@ -311,7 +311,7 @@ G_correction <- function(
   })
 
   ## Add data back to TSRexploreR object.
-  select_samples <- map(select_samples, as_granges)
+  select_samples <- purrr::map(select_samples, as_granges)
   experiment@experiment$TSSs <- select_samples
 
   return(experiment)

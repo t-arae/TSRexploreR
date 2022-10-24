@@ -216,15 +216,15 @@ plot_sequence_logo <- function(
   if (grouping_status == "none") {
     sequences <- tss_sequences %>%
       split(.$sample) %>%
-      map(function(x) {x[["sequence"]]})
+      purrr::map(function(x) {x[["sequence"]]})
   } else {
     setnames(tss_sequences, old=grouping_status, new="grouping")
     sequences <- tss_sequences %>%
       as.data.table %>%
       split(.$grouping) %>%
-      map(function(x) {
+      purrr::map(function(x) {
         split(x, x$sample) %>%
-        map(function(y) {y[["sequence"]]})
+        purrr::map(function(y) {y[["sequence"]]})
       })
   }
 
@@ -244,7 +244,7 @@ plot_sequence_logo <- function(
       theme(text=element_text(size=font_size))
   } else {
     p <- sequences %>%
-      map(function(x) {
+      purrr::map(function(x) {
         ggseqlogo::ggseqlogo(x, ncol=ncol, seq_type="dna", ...) +
           theme(text=element_text(size=font_size))
       })

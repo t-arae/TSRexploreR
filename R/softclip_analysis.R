@@ -70,7 +70,7 @@ softclip_composition <- function(
 
   ## Prepare data for softclip calculation.
   select_samples <- select_samples %>%
-    map(as.data.table) %>%
+    purrr::map(as.data.table) %>%
     rbindlist(idcol="sample")
 
   select_samples[,
@@ -195,7 +195,7 @@ softclip_histogram <- function(
 
   ## Prepare data for analysis.
   select_samples <- select_samples %>%
-    map(as.data.table) %>%
+    purrr::map(as.data.table) %>%
     rbindlist(idcol="sample")
   select_samples[,
     c("seqnames", "start", "end", "strand", "width", "seq_soft") := NULL

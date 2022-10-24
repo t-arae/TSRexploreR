@@ -118,13 +118,13 @@ retrieve_seqs <- function(
   selected_samples <- selected_samples %>%
     as.data.table %>%
     split(by="sample", keep.by=FALSE) %>%
-    map(as_granges)
+    purrr::map(as_granges)
 
   ## Retrieve the sequences.
   seqs <- switch(
     assembly_type,
-    "bsgenome"=map(selected_samples, ~BSgenome::getSeq(genome_assembly, .x)),
-    "fafile"=map(selected_samples, ~Rsamtools::getSeq(genome_assembly, .x))
+    "bsgenome"=purrr::map(selected_samples, ~BSgenome::getSeq(genome_assembly, .x)),
+    "fafile"=purrr::map(selected_samples, ~Rsamtools::getSeq(genome_assembly, .x))
   )
 
   ## Add names back to biostrings.

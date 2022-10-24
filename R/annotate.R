@@ -76,7 +76,7 @@ annotate_features <- function(
 
   ## Annotate features.
   
-  counts_annotated <- map(counts, function(x) {
+  counts_annotated <- purrr::map(counts, function(x) {
     x <- .annotate(
       x, upstream, downstream, feature_type,
       genome_annotation

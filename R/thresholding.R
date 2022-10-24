@@ -238,7 +238,7 @@ apply_threshold <- function(
   }
 
   ## Keep only surviving TSSs in each sample.
-  select_samples <- map(select_samples, function(x) {
+  select_samples <- purrr::map(select_samples, function(x) {
     x <- x[FHASH %in% rownames(count_mat)]
     return(x)
   })

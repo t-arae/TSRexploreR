@@ -144,7 +144,7 @@ gene_tracks <- function(
     selected_TSSs <- experiment %>%
       extract_counts("tss", tss_samples, use_normalized) %>%
       preliminary_filter(FALSE, threshold)
-    selected_TSSs <- map(selected_TSSs, function(x) {
+    selected_TSSs <- purrr::map(selected_TSSs, function(x) {
       x <- x[, ..keep_cols]
       x <- as_granges(x)
       return(x)
@@ -155,7 +155,7 @@ gene_tracks <- function(
     selected_TSRs <- experiment %>%
       extract_counts("tsr", tsr_samples, use_normalized) %>%
       preliminary_filter(FALSE, threshold)
-    selected_TSRs <- map(selected_TSRs, function(x) {
+    selected_TSRs <- purrr::map(selected_TSRs, function(x) {
       x <- x[, ..keep_cols]
       x <- as_granges(x)
       return(x)
@@ -166,7 +166,7 @@ gene_tracks <- function(
   ## Split positive and negative strands for TSSs.
   if (use_tss) {
     split_TSSs <- selected_TSSs %>%
-      map(function(x) {
+      purrr::map(function(x) {
         pos_ranges <- plyranges::filter(x, strand == "+")
         neg_ranges <- plyranges::filter(x, strand == "-")
         split_ranges <- list(pos=pos_ranges, neg=neg_ranges)

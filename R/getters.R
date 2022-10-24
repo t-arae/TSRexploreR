@@ -106,7 +106,7 @@ get_counts <- function(
     "tss"=experiment@counts$TSSs$raw,
     "tsr"=experiment@counts$TSRs$raw
   )
-  cts <- map(cts, as.data.frame)
+  cts <- purrr::map(cts, as.data.frame)
 
   return(cts)
 }
@@ -384,7 +384,7 @@ get_diff_results <- function(
     "tss"=experiment@diff_features$TSSs$results[samples],
     "tsr"=experiment@diff_features$TSRs$results[samples]
   )
-  der <- map(der, as.data.frame)
+  der <- purrr::map(der, as.data.frame)
 
   return(der)
 }

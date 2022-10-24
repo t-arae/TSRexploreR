@@ -213,7 +213,7 @@ plot_heatmap <- function(
 
   ## Remove antisense TSSs/TSRs.
   if (remove_antisense) {
-    annotated <- map(annotated, ~.x[simple_annotations != "Antisense"])
+    annotated <- purrr::map(annotated, ~.x[simple_annotations != "Antisense"])
   }
 
   ## Rename feature ID.
@@ -242,7 +242,7 @@ plot_heatmap <- function(
 
   ## Generate differential heatmap if set.
   if (!is.null(diff_heatmap_list)) {
-    count_mat <- map(diff_heatmap_list, function(x) {
+    count_mat <- purrr::map(diff_heatmap_list, function(x) {
       mat <- count_mat[sample %in% x]
       mat <- mat[, .(sample, score, distanceToTSS, feature)]
       mat <- dcast(mat, ... ~ sample, value.var="score")
@@ -476,7 +476,7 @@ plot_heatmap <- function(
   sample_list,
   filtering
 ) {
-  sample_list <- map(sample_list, ~dplyr::filter(.x, !!filtering))
+  sample_list <- purrr::map(sample_list, ~dplyr::filter(.x, !!filtering))
   return(sample_list)
 }
 
@@ -593,7 +593,7 @@ plot_heatmap <- function(
 
   ## Change list to data.table if list provided.
   if (!is.data.frame(split_by)) {
-    split_by <- map(split_by, ~data.table(feature=.x))
+    split_by <- purrr::map(split_by, ~data.table(feature=.x))
     split_by <- rbindlist(split_by, idcol="split_group")
   } else {
     setDT(split_by)

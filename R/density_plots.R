@@ -95,10 +95,10 @@ plot_density <- function(
     extract_counts(data_type, samples, use_normalized) %>%
     preliminary_filter(dominant, threshold)
 
-  sample_data <- map(sample_data, ~ .x[dplyr::between(distanceToTSS, -upstream, downstream)])
+  sample_data <- purrr::map(sample_data, ~ .x[dplyr::between(distanceToTSS, -upstream, downstream)])
 
   ## Remove antisense TSSs/TSRs if requested.
-  sample_data <- map(sample_data, ~ .x[simple_annotations != "Antisense"])
+  sample_data <- purrr::map(sample_data, ~ .x[simple_annotations != "Antisense"])
 
   ## Condition data.
   sample_data <- condition_data(sample_data, data_conditions)

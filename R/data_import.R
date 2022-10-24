@@ -143,7 +143,7 @@ tss_import <- function(
 .import_tables <- function(sample_sheet, delim) {
   samples <- sample_sheet[, .(sample_name, file_1)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
-    map(function(x) {
+    purrr::map(function(x) {
       x <- x %>%
         as.character %>%
         fread(sep=delim) %>%
@@ -162,7 +162,7 @@ tss_import <- function(
 .import_bedgraphs <- function(sample_sheet) {
   samples <- sample_sheet[, .(sample_name, file_1, file_2)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
-    map(function(x) {
+    purrr::map(function(x) {
       # Import positive strand.
       pos=x[, file_1]
       pos <- import(pos, "bedgraph")
@@ -192,7 +192,7 @@ tss_import <- function(
 .import_bigwigs <- function(sample_sheet) {
   samples <- sample_sheet[, .(sample_name, file_1, file_2)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
-    map(function(x) {
+    purrr::map(function(x) {
       # Import positive strand.
       pos=x[, file_1]
       pos <- import(pos, "bigwig")
@@ -222,7 +222,7 @@ tss_import <- function(
 .import_ctss <- function(sample_sheet) {
   samples <- sample_sheet[, .(sample_name, file_1)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
-    map(function(x) {
+    purrr::map(function(x) {
       x <- x %>%
         as.character %>%
         fread(sep="\t", header=FALSE)
@@ -380,7 +380,7 @@ tsr_import <- function(
 
   samples <- sample_sheet[, .(sample_name, file_1)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
-    map(function(x) {
+    purrr::map(function(x) {
       x <- x %>%
         as.character %>%
         import("bed") %>%

@@ -89,7 +89,7 @@ tss_export <- function(
     "bsgenome"=GenomeInfoDb::seqinfo(genome_assembly)
   )
 
-  export_samples <- map(export_samples, function(x) {
+  export_samples <- purrr::map(export_samples, function(x) {
     x <- sort(as_granges(x))
     chrm_lengths <- chrm_lengths[seqlevels(x)]
     seqlengths(x) <- seqlengths(chrm_lengths)

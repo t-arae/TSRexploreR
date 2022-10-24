@@ -46,8 +46,8 @@ associate_with_tsr <- function(
 
   ## Get TSSs.
   if (!is.null(sample_list)) {
-    tss <- map(sample_list, function(samples) {
-      map(samples, ~extract_counts(experiment, "tss", .x, FALSE))
+    tss <- purrr::map(sample_list, function(samples) {
+      purrr::map(samples, ~extract_counts(experiment, "tss", .x, FALSE))
     })
   } else {
     tss <- experiment@counts$TSSs$raw %>%
@@ -56,7 +56,7 @@ associate_with_tsr <- function(
 
   ## Get TSRs.
   if (!is.null(sample_list)) {
-    tsr <- map(
+    tsr <- purrr::map(
       sample_list,
       ~extract_counts(experiment, "tsr", .x, FALSE)
     )
@@ -69,7 +69,7 @@ associate_with_tsr <- function(
     tsr[, tsr_sample := tsr_name]
     setkey(tsr, seqnames, strand, start, end)
     tss <- tss[[tsr_name]]
-    tss <- map(tss, function(x) {
+    tss <- purrr::map(tss, function(x) {
       setkey(x, seqnames, strand, start, end)
       overlap <- foverlaps(x, tsr)
       overlap[, c("start", "end") := NULL]

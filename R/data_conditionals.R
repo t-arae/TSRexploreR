@@ -314,7 +314,7 @@ condition_data <- function(
   signal_data,
   filters
 ) {
-  signal_data <- map(signal_data, ~dplyr::filter(.x, !!filters))
+  signal_data <- purrr::map(signal_data, ~dplyr::filter(.x, !!filters))
   return(signal_data)
 }
 
@@ -465,7 +465,7 @@ preliminary_filter <- function(signal_data, dominant, threshold) {
   
   ## Retain only dominant features if required.
   if (dominant) {
-    signal_data <- map(signal_data, function(x) {
+    signal_data <- purrr::map(signal_data, function(x) {
       x <- x[(dominant)]
       return(x)
     })
@@ -473,7 +473,7 @@ preliminary_filter <- function(signal_data, dominant, threshold) {
 
   ## Apply a threshold to score if required.
   if (!is.null(threshold)) {
-    signal_data <- map(signal_data, function(x) {
+    signal_data <- purrr::map(signal_data, function(x) {
       x <- x[score >= threshold]
       return(x)
     })

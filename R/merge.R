@@ -96,11 +96,11 @@ merge_samples <- function(
     keep <- c("sample_name", merge_group)
     merge_list <- experiment@meta_data$sample_sheet[, ..keep] %>%
       split(by=merge_group, keep.by=FALSE) %>%
-      map(`[[`, "sample_name")
+      purrr::map(`[[`, "sample_name")
   }
 
   ## Merge feature sets.
-  merged_samples <- map(merge_list, function(x) {
+  merged_samples <- purrr::map(merge_list, function(x) {
 
     # Bind ranges.
     samples <- experiment %>%
@@ -134,7 +134,7 @@ merge_samples <- function(
   }
 
   ## Add merged GRanges to count slot.
-  merged_samples <- map(merged_samples, as.data.table)
+  merged_samples <- purrr::map(merged_samples, as.data.table)
   if (data_type == "tss") {
     experiment@counts$TSSs$raw <- c(experiment@counts$TSSs$raw, merged_samples)
   } else if (data_type == "tsr") {
