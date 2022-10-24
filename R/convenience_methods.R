@@ -95,7 +95,7 @@ extract_counts <- function(experiment, data_type, samples, use_normalized=FALSE)
 
   ## Return CPM score if requested.
   if (use_normalized) {
-    walk(return_samples, function(x) {
+    purrr::walk(return_samples, function(x) {
       x[, score := normalized_score]
       x[, normalized_score := NULL]
       return(x)

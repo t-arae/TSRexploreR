@@ -71,7 +71,7 @@ plot_detected_features <- function(
   sample_data <- condition_data(sample_data, data_conditions)
 
   ## Rename feature column.
-  walk(sample_data, function(x) {
+  purrr::walk(sample_data, function(x) {
     setnames(
       x, old=ifelse(
         experiment@settings$annotation[, feature_type] == "transcript",

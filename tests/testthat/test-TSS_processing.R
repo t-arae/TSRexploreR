@@ -18,8 +18,8 @@ test_that("TSS Normalization", {
     expect_type("list") %>%
     expect_length(3) %>%
     expect_named(c("S288C_WT_1", "S288C_WT_2", "S288C_WT_3"), ignore.order=TRUE) %>%
-    walk(expect_s3_class, "data.table") %>%
-    walk(expect_named, c(
+    purrr::walk(expect_s3_class, "data.table") %>%
+    purrr::walk(expect_named, c(
       "seqnames", "start", "end", "width", "strand",
       "FHASH", "normalized_score", "score"
     ))
@@ -30,8 +30,8 @@ test_that("TSS Normalization", {
     expect_type("list") %>%
     expect_length(3) %>%
     expect_named(c("S288C_WT_1", "S288C_WT_2", "S288C_WT_3"), ignore.order=TRUE) %>%
-    walk(expect_s3_class, "data.table") %>%
-    walk(expect_named, c(
+    purrr::walk(expect_s3_class, "data.table") %>%
+    purrr::walk(expect_named, c(
       "seqnames", "start", "end", "width", "strand",
       "FHASH", "normalized_score", "score"
     ))
@@ -42,8 +42,8 @@ test_that("TSS Normalization", {
     expect_type("list") %>%
     expect_length(3) %>%
     expect_named(c("S288C_WT_1", "S288C_WT_2", "S288C_WT_3"), ignore.order=TRUE) %>%
-    walk(expect_s3_class, "data.table") %>%
-    walk(expect_named, c(
+    purrr::walk(expect_s3_class, "data.table") %>%
+    purrr::walk(expect_named, c(
       "seqnames", "start", "end", "width", "strand",
       "FHASH", "normalized_score", "score"
     ))

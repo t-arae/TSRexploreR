@@ -129,7 +129,7 @@ import_bams <- function(
   }
 
   ## Get soft-clipped bases.
-  walk(bams, function(x) {
+  purrr::walk(bams, function(x) {
     x[, n_soft := as.numeric(ifelse(
       strand == "+",
       stringr::str_extract(cigar, "^[[:digit:]]+(?=S)"), # For + strand soft-clip is at cigar beginning.
@@ -150,7 +150,7 @@ import_bams <- function(
   bams <- map(bams, ~ .x[is.na(n_soft) | n_soft <= soft_remove])
 
   ## Convert to GRanges.
-  walk(bams, function(x) {
+  purrr::walk(bams, function(x) {
     x[,
       start := ifelse(strand == "+", start, end)
     ][,

@@ -68,7 +68,7 @@ plot_genomic_distribution <- function(
     extract_counts(data_type, samples, use_normalized) %>%
     preliminary_filter(dominant, threshold)
 
-  walk(selected_samples, function(x) {
+  purrr::walk(selected_samples, function(x) {
     x[, simple_annotations := factor(
       simple_annotations,
       levels=c("Promoter", "Exon", "Intron", "Downstream", "Intergenic", "Antisense")

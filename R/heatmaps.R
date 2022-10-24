@@ -217,7 +217,7 @@ plot_heatmap <- function(
   }
 
   ## Rename feature ID.
-  walk(annotated, function(x) {
+  purrr::walk(annotated, function(x) {
     setnames(x,
       old=ifelse(
         experiment@settings$annotation[, feature_type] == "transcript",

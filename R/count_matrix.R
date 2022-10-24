@@ -26,7 +26,7 @@
 
   ## Change scores to normalized scores if requested.
   if (use_normalized) {
-    walk(count_data, ~.x[, score := normalized_score])
+    purrr::walk(count_data, ~.x[, score := normalized_score])
   }
 
   ## If making a TSR matrix merge overlapping ranges.

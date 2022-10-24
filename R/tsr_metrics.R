@@ -95,7 +95,7 @@ tsr_metrics <- function(
 
   ## Add metrics back to TSRexploreR object.
   select_TSRs <- split(select_TSRs, select_TSRs$tsr_sample)
-  walk(select_TSRs, function(x) {
+  purrr::walk(select_TSRs, function(x) {
     x[, tsr_sample := NULL]
     setnames(x, old="TSR_FHASH", new="FHASH")
     x <- as_granges(x)
@@ -104,7 +104,7 @@ tsr_metrics <- function(
   })
 
   select_samples <- split(select_samples, select_samples$sample)
-  walk(select_samples, function(x) {
+  purrr::walk(select_samples, function(x) {
     x[, sample := NULL]
     x <- as_granges(x)
     x <- as.data.table(x)
