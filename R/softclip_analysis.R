@@ -81,7 +81,7 @@ softclip_composition <- function(
   if (!is.null(n_bases)) {
     select_samples[
       n_soft > 0,
-      seq_soft := str_sub(seq_soft, start=-n_bases, end=-1)
+      seq_soft := stringr::str_sub(seq_soft, start=-n_bases, end=-1)
     ]
   }
 

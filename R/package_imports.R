@@ -7,7 +7,7 @@ NULL
 #' @importFrom tibble tibble as_tibble column_to_rownames
 #' @importFrom stringr
 #'   str_replace str_split
-#'   str_extract str_sub
+#'   str_extract
 #' @importFrom purrr
 #'   imap map walk iwalk discard pmap map2 flatten
 #'   map_chr map_df map_lgl

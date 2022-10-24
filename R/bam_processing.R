@@ -140,7 +140,7 @@ import_bams <- function(
       n_soft == 0, seq := "none" # If there are no soft-clipped bases, replace seq with 'none'
     ][
       n_soft > 0, # Only subset sequences with soft-clipped bases.
-      seq := str_sub(seq, end=n_soft) # The sequence for negative strand is reverse complement.
+      seq := stringr::str_sub(seq, end=n_soft) # The sequence for negative strand is reverse complement.
     ]
     setnames(x, old="seq", new="seq_soft")
     return(x)
