@@ -125,7 +125,7 @@ fit_de_model <- function(
   assertthat::assert_that(is(formula, "formula"))
 
   ## Design matrix.
-  design <- model.matrix(formula, data=sample_sheet)
+  design <- stats::model.matrix(formula, data=sample_sheet)
 
   ## Differential Expression.
   de_model <- count_data %>%
