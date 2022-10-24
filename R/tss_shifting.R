@@ -227,7 +227,7 @@ ShiftScores <- function(
 ){
 
   dat <- tss_table %>%
-    as_tibble %>%
+    tibble::as_tibble() %>%
     dplyr::select(fhash=FHASH, sample_indicator=sample, distances=distance, scores=score)
   
   # Assumes fhash is consecutive, no regrouping necessary.
@@ -277,7 +277,7 @@ ShiftScores <- function(
       "shift_score", "pos_component", "neg_component",
       "emd", "shift_score_pval","emd_pval"
     )) %>%
-    as_tibble %>%
+    tibble::as_tibble() %>%
     dplyr::bind_cols(dplyr::distinct(dat, fhash)) %>%
     tidyr::separate(fhash, into=c("seqnames", "start", "end", "strand"), sep=":")
     
