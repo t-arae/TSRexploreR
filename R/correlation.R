@@ -2,8 +2,6 @@
 #'
 #' Analyze sample similarity with correlation analysis.
 #'
-#' @importFrom grid gpar
-#'
 #' @inheritParams common_params
 #' @param data_type Whether to correlate TSSs ('tss') or TSRs ('tsr').
 #' @param correlation_metric Whether to use 'spearman' or 'pearson' correlation.
@@ -120,8 +118,8 @@ plot_correlation <- function(
   ## ComplexHeatmap Correlation Plot.
   heatmap_args <- list(
     cor_mat,
-    row_names_gp=gpar(fontsize=font_size),
-    column_names_gp=gpar(fontsize=font_size)
+    row_names_gp=grid::gpar(fontsize=font_size),
+    column_names_gp=grid::gpar(fontsize=font_size)
   )
   if (!cluster_samples) {
     heatmap_args <- c(heatmap_args, list(cluster_rows=FALSE, cluster_columns=FALSE))
@@ -132,7 +130,7 @@ plot_correlation <- function(
   if (show_values) {
     heatmap_args <- c(heatmap_args, list(
       cell_fun=function(j, i, x, y, width, height, fill) {
-        grid::grid.text(sprintf("%.2f", cor_mat[i, j]), x, y, gp=gpar(fontsize=font_size))
+        grid::grid.text(sprintf("%.2f", cor_mat[i, j]), x, y, gp=grid::gpar(fontsize=font_size))
       }
     ))
   }
