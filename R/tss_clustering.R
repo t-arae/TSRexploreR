@@ -130,7 +130,7 @@ tss_clustering <- function(
 
   ## Get TSSs within max distance.
   reduced <- granges %>%
-    stretch(maxdist * 2) %>%
+    plyranges::stretch(maxdist * 2) %>%
     plyranges::reduce_ranges_directed()
 
   granges <- as.data.table(granges, key=c("seqnames", "strand", "start", "end"))

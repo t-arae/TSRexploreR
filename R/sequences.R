@@ -98,14 +98,14 @@ retrieve_seqs <- function(
   if (!is.null(extend_downstream)) {
     selected_samples <- selected_samples %>%
       plyranges::anchor_5p() %>%
-      stretch(extend_downstream)
+      plyranges::stretch(extend_downstream)
   }
 
   ## Expand ranges upstream if requested.
   if (!is.null(extend_upstream)) {
     selected_samples <- selected_samples %>%
       plyranges::anchor_3p() %>%
-      stretch(extend_upstream)
+      plyranges::stretch(extend_upstream)
   }
 
   ## Remove any ranges that are now out of bounds.

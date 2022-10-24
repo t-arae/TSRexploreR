@@ -200,7 +200,7 @@ merge_samples <- function(
 
   ## Expand ranges if required and remove out of bounds.
   if (!is.null(max_distance)) {
-    samples_granges <- stretch(samples_granges, max_distance * 2)
+    samples_granges <- plyranges::stretch(samples_granges, max_distance * 2)
 
     # Add chromosome lengths to GRanges.
     assembly_type <- dplyr::case_when(

@@ -60,7 +60,7 @@
   seqlengths(select_samples) <- seqlengths(chrm_lengths)
 
   ## Expand GRanges and remove out of bound.
-  select_samples <- stretch(select_samples, distance * 2)
+  select_samples <- plyranges::stretch(select_samples, distance * 2)
 
   out_of_bounds <- .out_of_bounds_index(select_samples)
   if (length(out_of_bounds) > 0) {

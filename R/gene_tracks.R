@@ -122,9 +122,9 @@ gene_tracks <- function(
   if (!promoter_only) {
     feature_ranges <- feature_ranges %>%
       plyranges::anchor_5p() %>%
-      stretch(downstream) %>%
+      plyranges::stretch(downstream) %>%
       plyranges::anchor_3p() %>%
-      stretch(upstream)
+      plyranges::stretch(upstream)
   }
 
   ## Get ranges for requested gene.
