@@ -143,7 +143,6 @@ gene_tracks <- function(
       extract_counts("tss", tss_samples, use_normalized) %>%
       preliminary_filter(FALSE, threshold)
     selected_TSSs <- purrr::map(selected_TSSs, function(x) {
-      x <- x[, ..keep_cols]
       x <- x[, keep_cols, with = FALSE]
       x <- plyranges::as_granges(x)
       return(x)
