@@ -114,7 +114,7 @@ plot_correlation <- function(
   )
 
   ## Correlation Matrix.
-  cor_mat <- cor(normalized_counts, method=correlation_metric)
+  cor_mat <- stats::cor(normalized_counts, method=correlation_metric)
 
   ## Return correlation matrix if requested.
   if (return_matrix) return(cor_mat)
