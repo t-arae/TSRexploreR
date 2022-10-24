@@ -422,7 +422,7 @@ condition_data <- function(
   ## Reduce ranges of samples into consensus ranges.
   cranges <- signal_data %>%
     as_granges %>%
-    reduce_ranges_directed %>%
+    plyranges::reduce_ranges_directed() %>%
     as.data.table(key=c("seqnames", "strand", "start", "end"))
   cranges[, CFHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
 

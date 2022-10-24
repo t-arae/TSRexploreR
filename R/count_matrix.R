@@ -36,7 +36,7 @@
     merged_ranges <- count_data %>%
       purrr::map(as_granges) %>%
       bind_ranges %>%
-      reduce_ranges_directed %>%
+      plyranges::reduce_ranges_directed() %>%
       as.data.table
 
     # Prepare reduced ranges for overlap with original ranges.

@@ -222,7 +222,7 @@ merge_samples <- function(
   }
 
   ## Create consensus ranges.
-  cranges <- reduce_ranges_directed(samples_granges)
+  cranges <- plyranges::reduce_ranges_directed(samples_granges)
   cranges <- as.data.table(cranges, key=c("seqnames", "strand", "start", "end"))
   cranges[, group_ID := .I]
 
