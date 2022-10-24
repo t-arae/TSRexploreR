@@ -105,7 +105,7 @@ softclip_composition <- function(
     variable.name="position", value.name="base"
   )
   select_samples[,
-    position := fct_relevel(position, as.character(seq(-1, -max_bases, -1)))
+    position := forcats::fct_relevel(position, as.character(seq(-1, -max_bases, -1)))
   ]
 
   ## Get table of base frequencies.
