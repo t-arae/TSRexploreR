@@ -89,11 +89,11 @@ tss_shift <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(
     (is.character(sample_1) && length(sample_1) == 2) &&
-    has_name(sample_1, c("TSS", "TSR"))
+    assertthat::has_name(sample_1, c("TSS", "TSR"))
   )
   assertthat::assert_that(
     (is.character(sample_2) && length(sample_2) == 2) &&
-    has_name(sample_2, c("TSS", "TSR"))
+      assertthat::has_name(sample_2, c("TSS", "TSR"))
   )
   assertthat::assert_that(
     is.null(tss_threshold) ||
