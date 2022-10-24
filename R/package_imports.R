@@ -21,7 +21,7 @@ NULL
 
 #' @importFrom BiocGenerics width start end "strand<-"
 #' @importFrom GenomeInfoDb "seqlengths<-" seqlengths
-#' @importFrom SummarizedExperiment rowRanges rowData assay "assay<-"
+#' @importFrom SummarizedExperiment rowData assay "assay<-"
 #' @importFrom S4Vectors "metadata<-" metadata DataFrame mcols elementMetadata
 
 NULL
