@@ -3,7 +3,7 @@
 #' @description
 #' Generate gene tracks with GViz.
 #'
-#' @importFrom GenomicFeatures genes transcripts promoters
+#' @importFrom GenomicFeatures transcripts promoters
 #'
 #' @inheritParams common_params
 #' @param feature_name Name of gene or transcript to visualize
@@ -112,9 +112,9 @@ gene_tracks <- function(
 
   feature_ranges <- switch(ftype,
     "transcript_promoter"=promoters(transcripts(anno), upstream=upstream, downstream=downstream),
-    "gene_promoter"=promoters(genes(anno), upstream=upstream, downstream=downstream),
+    "gene_promoter"=promoters(GenomicFeatures::genes(anno), upstream=upstream, downstream=downstream),
     "transcript"=transcripts(anno),
-    "gene"=genes(anno)
+    "gene"=GenomicFeatures::genes(anno)
   )
 
 
