@@ -93,8 +93,6 @@
 #' @description
 #' Create a sequence logo for the sequences around TSSs.
 #'
-#' @importFrom Biostrings consensusMatrix
-#'
 #' @inheritParams common_params
 #' @param distance Bases to add on each side of each TSS.
 #' @param font_size Font size for plots.
