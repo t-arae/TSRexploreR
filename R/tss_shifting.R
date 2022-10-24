@@ -185,7 +185,7 @@ tss_shift <- function(
 
   ## Annotate results.
   shifts[, c("shift_status", "emd_status") := list(
-    case_when(
+    dplyr::case_when(
       shift_score > 0 & shift_score_FDR < fdr_cutoff ~ "downstream",
       shift_score < 0 & shift_score_FDR < fdr_cutoff ~ "upstream",
       shift_score == 0 & shift_score_FDR < fdr_cutoff ~ "balanced",

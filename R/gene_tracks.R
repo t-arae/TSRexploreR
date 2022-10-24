@@ -104,7 +104,7 @@ gene_tracks <- function(
   options(ucscChromosomeNames=FALSE)
 
   ## Grab appropriate ranges.
-  ftype <- case_when(
+  ftype <- dplyr::case_when(
     promoter_only & feature_type == "transcript" ~ "transcript_promoter",
     promoter_only & feature_type == "gene" ~ "gene_promoter",
     !promoter_only & feature_type == "transcript" ~ "transcript",

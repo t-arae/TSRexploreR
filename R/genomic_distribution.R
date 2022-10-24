@@ -81,7 +81,7 @@ plot_genomic_distribution <- function(
   ## Calculate distribution.
   selected_samples <- rbindlist(selected_samples, idcol="sample")
 
-  grouping_status <- case_when(
+  grouping_status <- dplyr::case_when(
     !is.null(data_conditions$quantiling) ~ "row_quantile",
     !is.null(data_conditions$grouping) ~ "row_groups",
     TRUE ~ "none"

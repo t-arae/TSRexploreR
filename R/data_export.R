@@ -78,7 +78,7 @@ tss_export <- function(
   ## If exporting as bigWig, retrieve the seq lengths from the genome object.
   genome_assembly <- .prepare_assembly(genome_assembly, experiment)
 
-  assembly_type <- case_when(
+  assembly_type <- dplyr::case_when(
     is(genome_assembly, "BSgenome") ~ "bsgenome",
     is(genome_assembly, "FaFile") ~ "fafile"
   )

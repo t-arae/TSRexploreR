@@ -87,7 +87,7 @@ merge_samples <- function(
   }
 
   ## If group is specified, prepare sample list.
-  merge_type <- case_when(
+  merge_type <- dplyr::case_when(
     !is.null(merge_group) ~ "sample_sheet",
     !is.null(merge_list) ~ "sample_list"
   )
@@ -203,7 +203,7 @@ merge_samples <- function(
     samples_granges <- stretch(samples_granges, max_distance * 2)
 
     # Add chromosome lengths to GRanges.
-    assembly_type <- case_when(
+    assembly_type <- dplyr::case_when(
       is(genome_assembly, "BSgenome") ~ "bsgenome",
       is(genome_assembly, "FaFile") ~ "fafile"
     )

@@ -79,7 +79,7 @@ plot_tsr_metric <- function(
   ## Condition the data.
   selected_data <- condition_data(selected_data, data_conditions)
 
-  grouping_status <- case_when(
+  grouping_status <- dplyr::case_when(
     !is.null(data_conditions$quantiling) ~ "row_quantile",
     !is.null(data_conditions$grouping) ~ "row_groups",
     TRUE ~ "none"

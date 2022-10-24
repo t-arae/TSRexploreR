@@ -82,7 +82,7 @@ plot_detected_features <- function(
   })
 
   ## Get feature counts.
-  grouping_status <- case_when(
+  grouping_status <- dplyr::case_when(
     !is.null(data_conditions$quantiling) ~ "row_quantile",
     !is.null(data_conditions$grouping) ~ "row_groups",
     TRUE ~ "none"

@@ -71,7 +71,7 @@ tss_import <- function(
   assertthat::assert_that(is.string(delim))
 
   ## Convert sample sheet to data.table.
-  sheet_type <- case_when(
+  sheet_type <- dplyr::case_when(
     is.null(sample_sheet) & !is.null(experiment@meta_data$sample_sheet) ~ "internal",
     is.null(sample_sheet) & is.null(experiment@meta_data$sample_sheet) ~ "none",
     is.character(sample_sheet) ~ "file",
@@ -101,7 +101,7 @@ tss_import <- function(
       msg="All files must have the same file extension."
     )
 
-    file_type <- case_when(
+    file_type <- dplyr::case_when(
       file_ext %in% c("bw", "bigwig") ~ "bigwig",
       file_ext %in% c("csv", "tsv", "txt") ~ "table",
       file_ext == "ctss" ~ "ctss",
@@ -311,7 +311,7 @@ tsr_import <- function(
   assertthat::assert_that(is.string(delim))
 
   ## Convert sample sheet to data.table.
-  sheet_type <- case_when(
+  sheet_type <- dplyr::case_when(
     is.null(sample_sheet) & !is.null(experiment@meta_data$sample_sheet) ~ "internal",
     is.null(sample_sheet) & is.null(experiment@meta_data$sample_sheet) ~ "none",
     is.character(sample_sheet) ~ "file",
@@ -341,7 +341,7 @@ tsr_import <- function(
       msg="All files must have the same file extension."
     )
 
-    file_type <- case_when(
+    file_type <- dplyr::case_when(
       file_ext %in% c("csv", "tsv", "txt") ~ "table",
       file_ext == "bed" ~ "bed",
       TRUE ~ "unknown"
