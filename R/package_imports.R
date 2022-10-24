@@ -18,8 +18,6 @@ NULL
 #'   geom_violin geom_boxplot geom_jitter geom_raster geom_histogram
 #'   geom_bar geom_hline scale_fill_gradient2 scale_color_gradient2
 #' @importFrom dplyr pull desc
-#' @importFrom assertthat
-#'   is.count
 #' @importFrom rlang .data enquo enquos quo_is_null "!!" "!!!" quo_text ensym
 
 NULL

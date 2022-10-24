@@ -24,7 +24,7 @@
     is(genome_assembly, "BSgenome")
   )
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assertthat::assert_that(is.count(distance))
+  assertthat::assert_that(assertthat::is.count(distance))
   assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(is.null(data_conditions) || is.list(data_conditions))
 
@@ -183,10 +183,10 @@ plot_sequence_logo <- function(
     is(genome_assembly, "BSgenome")
   )
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assertthat::assert_that(is.count(distance))
+  assertthat::assert_that(assertthat::is.count(distance))
   assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(is.null(data_conditions) || is.list(data_conditions))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(is.numeric(font_size) && font_size > 0)
   assertthat::assert_that(
     is.character(base_colors) &&
@@ -342,17 +342,17 @@ plot_sequence_colormap <- function(
     is(genome_assembly, "BSgenome")
   )
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assertthat::assert_that(is.count(distance))
+  assertthat::assert_that(assertthat::is.count(distance))
   assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(is.null(data_conditions) || is.list(data_conditions))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(is.numeric(font_size) && font_size > 0)
   assertthat::assert_that(
     is.character(base_colors) &&
     all(c("A", "T", "G", "C") %in% names(base_colors))
   )
   assertthat::assert_that(assertthat::is.flag(rasterize))
-  assertthat::assert_that(is.count(raster_dpi))
+  assertthat::assert_that(assertthat::is.count(raster_dpi))
 
   ## Check if ggrastr is installed if rasterization set.
   if (rasterize) {

@@ -156,14 +156,14 @@ plot_heatmap <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
-  assertthat::assert_that(is.count(upstream))
-  assertthat::assert_that(is.count(downstream))
+  assertthat::assert_that(assertthat::is.count(upstream))
+  assertthat::assert_that(assertthat::is.count(downstream))
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
   assertthat::assert_that(assertthat::is.flag(use_normalized))
   assertthat::assert_that(assertthat::is.flag(dominant))
   data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr"))
   assertthat::assert_that(assertthat::is.flag(rasterize))
-  assertthat::assert_that(is.count(raster_dpi))
+  assertthat::assert_that(assertthat::is.count(raster_dpi))
   assertthat::assert_that(
     is.null(max_value) ||
     (is.numeric(max_value) && max_value > 0)
@@ -171,12 +171,12 @@ plot_heatmap <- function(
   assertthat::assert_that(is.character(low_color))
   assertthat::assert_that(is.character(high_color))
   assertthat::assert_that(assertthat::is.flag(log2_transform))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(assertthat::is.flag(order_descending))
   assertthat::assert_that(is.function(order_fun))
   assertthat::assert_that(is.null(order_samples) || is.character(order_samples))
   assertthat::assert_that(is.function(quantile_fun))
-  assertthat::assert_that(is.count(n_quantiles))
+  assertthat::assert_that(assertthat::is.count(n_quantiles))
   assertthat::assert_that(is.null(quantile_samples) || is.character(quantile_samples))
   assertthat::assert_that(
     is.null(split_by) ||

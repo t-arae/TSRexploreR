@@ -61,7 +61,7 @@ import_bams <- function(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
-  assertthat::assert_that(is.null(soft_remove) || is.count(soft_remove))
+  assertthat::assert_that(is.null(soft_remove) || assertthat::is.count(soft_remove))
   assertthat::assert_that(is.null(proper_pair) || assertthat::is.flag(proper_pair))
   assertthat::assert_that(assertthat::is.flag(remove_secondary))
   assertthat::assert_that(assertthat::is.flag(remove_duplicate))

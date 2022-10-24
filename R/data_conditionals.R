@@ -227,7 +227,7 @@ quantiling <- function(
 ){
 
   ## Check inputs.
-  assertthat::assert_that(is.null(n) || is.count(n))
+  assertthat::assert_that(is.null(n) || assertthat::is.count(n))
   assertthat::assert_that(is.null(samples) || is.character(samples))
   assertthat::assert_that(assertthat::is.flag(descending))
   assertthat::assert_that(is.function(aggr_fun))

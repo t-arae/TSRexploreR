@@ -139,7 +139,7 @@ plot_threshold_exploration <- function(
 ) {
 
   ## Check inputs.
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(is.numeric(point_size) && point_size > 0)
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.numeric(max_threshold) && max_threshold >= 5)
@@ -221,7 +221,7 @@ apply_threshold <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.numeric(threshold) && threshold > 0)
-  assertthat::assert_that(is.null(n_samples) || is.count(n_samples))
+  assertthat::assert_that(is.null(n_samples) || assertthat::is.count(n_samples))
   assertthat::assert_that(assertthat::is.flag(use_normalized))
 
   ## Retrieve selected samples.

@@ -64,8 +64,8 @@ normalize_counts <- function(
     c("tss", "tss_features")
   )
   method <- match.arg(stringr::str_to_lower(method), c("edger", "deseq2", "cpm"))
-  assertthat::assert_that(is.count(threshold))
-  assertthat::assert_that(is.count(n_samples))
+  assertthat::assert_that(assertthat::is.count(threshold))
+  assertthat::assert_that(assertthat::is.count(n_samples))
   if (method == "DESeq2") {
     assertthat::assert_that(!is.null(experiment@meta_data$sample_sheet))
   }

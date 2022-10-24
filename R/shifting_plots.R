@@ -59,7 +59,7 @@ plot_shift_rank <- function(
     stringr::str_to_lower(score_order),
     c("descending", "ascending")
   )
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
 
   ## Retrieve samples.
   if (samples == "all") {
@@ -161,7 +161,7 @@ plot_shift_count <- function(
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(assertthat::is.flag(return_table))
 
   ## Get samples.

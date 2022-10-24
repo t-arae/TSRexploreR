@@ -65,7 +65,7 @@ plot_tsr_metric <- function(
   )
   assertthat::assert_that(is.character(samples))
   assertthat::assert_that(assertthat::is.flag(log2_transform))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(assertthat::is.flag(use_normalized))
   assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))

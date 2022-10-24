@@ -49,12 +49,12 @@ retrieve_seqs <- function(
   assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(
     is.null(extend_upstream) ||
-    is.count(extend_upstream)
+    assertthat::is.count(extend_upstream)
   )
   assertthat::assert_that(assertthat::is.flag(fixed_size))
   assertthat::assert_that(
     is.null(extend_downstream) ||
-    is.count(extend_downstream)
+    assertthat::is.count(extend_downstream)
   )
   return_format <- match.arg(
     stringr::str_to_lower(return_format),

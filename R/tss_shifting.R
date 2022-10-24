@@ -99,8 +99,8 @@ tss_shift <- function(
     is.null(tss_threshold) ||
     (is.numeric(tss_threshold) && tss_threshold >= 0)
   )
-  assertthat::assert_that(is.count(max_distance))
-  assertthat::assert_that(is.count(min_threshold) && min_threshold > 5)
+  assertthat::assert_that(assertthat::is.count(max_distance))
+  assertthat::assert_that(assertthat::is.count(min_threshold) && min_threshold > 5)
   assertthat::assert_that(is.integer(n_resamples) && n_resamples >= 100L)
   assertthat::assert_that(
     is.numeric(fdr_cutoff) &&

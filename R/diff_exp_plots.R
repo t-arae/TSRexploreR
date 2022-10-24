@@ -67,7 +67,7 @@ plot_ma <- function(
     c("tss", "tsr", "tss_features", "tsr_features")
   )
   assertthat::assert_that(is.character(de_comparisons))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
   assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
   assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff <= 1 & fdr_cutoff > 0))
 
@@ -165,7 +165,7 @@ plot_volcano <- function(
   assertthat::assert_that(is.character(de_comparisons))
   assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
   assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff < 1 & fdr_cutoff >= 0))
-  assertthat::assert_that(is.count(ncol))
+  assertthat::assert_that(assertthat::is.count(ncol))
 
   ## Get DE data.
   de_samples <- extract_de(experiment, data_type, de_comparisons)

@@ -59,8 +59,8 @@ annotate_features <- function(
   )
   data_type <- match.arg(data_type, c("tss", "tsr", "tss_diff", "tsr_diff", "shift")) 
   feature_type <- match.arg(feature_type, c("gene", "transcript"))
-  assertthat::assert_that(is.count(upstream))
-  assertthat::assert_that(is.count(downstream))
+  assertthat::assert_that(assertthat::is.count(upstream))
+  assertthat::assert_that(assertthat::is.count(downstream))
 
   ## Load GTF.
   genome_annotation <- .prepare_annotation(genome_annotation, experiment)

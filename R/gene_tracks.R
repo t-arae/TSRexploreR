@@ -84,8 +84,8 @@ gene_tracks <- function(
     c("tss", "tsr"), several.ok=TRUE
   )
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
-  assertthat::assert_that(is.count(upstream))
-  assertthat::assert_that(is.count(downstream))
+  assertthat::assert_that(assertthat::is.count(upstream))
+  assertthat::assert_that(assertthat::is.count(downstream))
   assertthat::assert_that(assertthat::is.flag(promoter_only))
   assertthat::assert_that(assertthat::is.flag(use_normalized))
   assertthat::assert_that(is.character(tss_colors))
