@@ -174,7 +174,7 @@ tss_import <- function(
       strand(neg) <- "-"
 
       # Combine positive and negative strand.
-      combined <- bind_ranges(pos, neg)
+      combined <- plyranges::bind_ranges(pos, neg)
 
       # Sort the ranges.
       combined <- sort(combined)
@@ -204,7 +204,7 @@ tss_import <- function(
       strand(neg) <- "-"
 
       # Combine positive and negative strand.
-      combined <- bind_ranges(pos, neg)
+      combined <- plyranges::bind_ranges(pos, neg)
 
       # Sort the ranges.
       combined <- sort(combined)

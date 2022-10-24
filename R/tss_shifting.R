@@ -115,7 +115,7 @@ tss_shift <- function(
   ## Merge TSRs into consensus ranges.
   consensus_TSRs <- TSRs %>%
     purrr::map(as_granges) %>%
-    bind_ranges %>%
+    plyranges::bind_ranges() %>%
     GenomicRanges::reduce(min.gapwidth=max_distance, ignore.strand=FALSE) %>%
     as.data.table(key=c("seqnames", "strand", "start", "end"))
   consensus_TSRs[, FHASH := stringr::str_c(seqnames, start, end, strand, sep=":")]
