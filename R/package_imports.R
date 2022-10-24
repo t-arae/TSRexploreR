@@ -7,7 +7,7 @@ NULL
 #' @importFrom tibble tibble as_tibble column_to_rownames
 #' @importFrom purrr
 #'   imap map walk iwalk discard pmap map2 flatten
-#'   map_chr map_df map_lgl
+#'   map_chr map_df
 #' @importFrom tidyr pivot_longer replace_na
 #' @importFrom ggplot2
 #'   labs ylab xlab ylim xlim

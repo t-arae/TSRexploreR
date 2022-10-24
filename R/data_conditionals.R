@@ -442,7 +442,7 @@ condition_data <- function(
   ) := NULL]
 
   ## Aggregate numeric features.
-  numeric_cols <- colnames(ord)[map_lgl(ord, is.numeric)]
+  numeric_cols <- colnames(ord)[purrr::map_lgl(ord, is.numeric)]
 
   ord <- ord[,
     lapply(.SD, conditionals$aggr_fun),
