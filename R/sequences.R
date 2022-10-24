@@ -84,7 +84,7 @@ retrieve_seqs <- function(
     "bsgenome"=GenomeInfoDb::seqinfo(genome_assembly)
   )
 
-  chrm_lengths <- chrm_lengths[seqlevels(selected_samples)]
+  chrm_lengths <- chrm_lengths[GenomeInfoDb::seqlevels(selected_samples)]
   seqlengths(selected_samples) <- seqlengths(chrm_lengths)
 
   ## Reduce ranges to center point if requested.

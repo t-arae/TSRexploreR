@@ -56,7 +56,7 @@
     "bsgenome"=GenomeInfoDb::seqinfo(genome_assembly)
   )
 
-  chrm_lengths <- chrm_lengths[seqlevels(select_samples)]
+  chrm_lengths <- chrm_lengths[GenomeInfoDb::seqlevels(select_samples)]
   seqlengths(select_samples) <- seqlengths(chrm_lengths)
 
   ## Expand GRanges and remove out of bound.

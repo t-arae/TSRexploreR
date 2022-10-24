@@ -214,7 +214,7 @@ merge_samples <- function(
       "bsgenome"=GenomeInfoDb::seqinfo(genome_assembly)
     )
   
-    chrm_lengths <- chrm_lengths[seqlevels(samples_granges)]
+    chrm_lengths <- chrm_lengths[GenomeInfoDb::seqlevels(samples_granges)]
     seqlengths(samples_granges) <- seqlengths(chrm_lengths)
 
     # Trim out-of-bounds ranges.

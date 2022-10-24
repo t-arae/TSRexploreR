@@ -91,7 +91,7 @@ tss_export <- function(
 
   export_samples <- purrr::map(export_samples, function(x) {
     x <- sort(as_granges(x))
-    chrm_lengths <- chrm_lengths[seqlevels(x)]
+    chrm_lengths <- chrm_lengths[GenomeInfoDb::seqlevels(x)]
     seqlengths(x) <- seqlengths(chrm_lengths)
     return(x)
   })
