@@ -42,7 +42,7 @@
   ## Prepare table for sequence retrieval.
   select_samples <- rbindlist(select_samples, idcol="sample")
   select_samples[, tss := start]
-  select_samples <- as_granges(select_samples)
+  select_samples <- plyranges::as_granges(select_samples)
 
   ## Add chromosome lengths to GRanges.
   assembly_type <- dplyr::case_when(

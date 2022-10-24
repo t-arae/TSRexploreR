@@ -120,7 +120,7 @@ merge_samples <- function(
     )
 
     # Convert to GRanges and ensure proper sorting.
-    samples <- sort(as_granges(samples))
+    samples <- sort(plyranges::as_granges(samples))
 
     return(samples)
     
@@ -196,7 +196,7 @@ merge_samples <- function(
   genome_assembly <- .prepare_assembly(genome_assembly, experiment)
 
   ## Create GRanges.
-  samples_granges <- as_granges(samples)    
+  samples_granges <- plyranges::as_granges(samples)    
 
   ## Expand ranges if required and remove out of bounds.
   if (!is.null(max_distance)) {

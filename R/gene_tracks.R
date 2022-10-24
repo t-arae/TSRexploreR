@@ -146,7 +146,7 @@ gene_tracks <- function(
       preliminary_filter(FALSE, threshold)
     selected_TSSs <- purrr::map(selected_TSSs, function(x) {
       x <- x[, ..keep_cols]
-      x <- as_granges(x)
+      x <- plyranges::as_granges(x)
       return(x)
     })
   }
@@ -157,7 +157,7 @@ gene_tracks <- function(
       preliminary_filter(FALSE, threshold)
     selected_TSRs <- purrr::map(selected_TSRs, function(x) {
       x <- x[, ..keep_cols]
-      x <- as_granges(x)
+      x <- plyranges::as_granges(x)
       return(x)
     })
 

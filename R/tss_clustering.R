@@ -76,7 +76,7 @@ tss_clustering <- function(
       keep_cols <- c(keep_cols, "normalized_score")
     }
     x <- x[, ..keep_cols]
-    x <- as_granges(x)
+    x <- plyranges::as_granges(x)
     return(x)
   })
   
@@ -102,7 +102,7 @@ tss_clustering <- function(
       keep_cols <- c(keep_cols, "normalized_score")
     }
     TSR_granges <- x[, ..keep_cols]
-    TSR_granges <- as_granges(TSR_granges)
+    TSR_granges <- plyranges::as_granges(TSR_granges)
     return(TSR_granges)
   })
 
@@ -155,7 +155,7 @@ tss_clustering <- function(
   }
   overlaps[, c("i.start", "i.end") := NULL]
   overlaps <- overlaps %>%
-    as_granges %>%
+    plyranges::as_granges() %>%
     sort %>%
     as.data.table
 

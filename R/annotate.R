@@ -120,7 +120,7 @@ annotate_features <- function(
 ) {
 
   ## Convert to GRanges.
-  sample_table <- as_granges(sample_table)
+  sample_table <- plyranges::as_granges(sample_table)
 
   ## Annotate.
   annotated <- sample_table %>%

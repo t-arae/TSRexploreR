@@ -121,7 +121,7 @@ normalize_counts <- function(
     lapply(function(x) x[,!c("normalized_score")]) %>% 
     rbindlist(idcol="sample") %>%
     {merge(normalized_counts, ., by=c("sample", "FHASH"), all.y=TRUE)} %>%
-    as_granges %>%
+    plyranges::as_granges() %>%
     sort %>%
     as.data.table %>%
     split(by="sample", keep.by=FALSE)

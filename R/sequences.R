@@ -67,7 +67,7 @@ retrieve_seqs <- function(
     extract_counts(data_type, samples) %>%
     preliminary_filter(dominant, threshold) %>%
     rbindlist(idcol="sample") %>%
-    as_granges
+    plyranges::as_granges()
 
   ## Prepare genome assembly.
   genome_assembly <- .prepare_assembly(genome_assembly, experiment)
@@ -118,7 +118,7 @@ retrieve_seqs <- function(
   selected_samples <- selected_samples %>%
     as.data.table %>%
     split(by="sample", keep.by=FALSE) %>%
-    purrr::map(as_granges)
+    purrr::map(plyranges::as_granges)
 
   ## Retrieve the sequences.
   seqs <- switch(

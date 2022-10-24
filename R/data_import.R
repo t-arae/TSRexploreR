@@ -147,7 +147,7 @@ tss_import <- function(
       x <- x %>%
         as.character %>%
         fread(sep=delim) %>%
-        as_granges %>%
+        plyranges::as_granges() %>%
         sort
       return(x)
     })
@@ -231,7 +231,7 @@ tss_import <- function(
         new=c("seqnames", "start", "strand", "score")
       )
       x[, end:=start]
-      x <- sort(as_granges(x))
+      x <- sort(plyranges::as_granges(x))
 
       return(x)
     })

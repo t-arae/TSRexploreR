@@ -92,7 +92,7 @@ associate_with_tsr <- function(
         )
       }
       overlap <- overlap %>%
-        as_granges %>%
+        plyranges::as_granges() %>%
         sort %>%
         as.data.table
       return(overlap)

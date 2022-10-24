@@ -98,7 +98,7 @@ tsr_metrics <- function(
   purrr::walk(select_TSRs, function(x) {
     x[, tsr_sample := NULL]
     setnames(x, old="TSR_FHASH", new="FHASH")
-    x <- as_granges(x)
+    x <- plyranges::as_granges(x)
     x <- as.data.table(x)
     return(x)
   })
@@ -106,7 +106,7 @@ tsr_metrics <- function(
   select_samples <- split(select_samples, select_samples$sample)
   purrr::walk(select_samples, function(x) {
     x[, sample := NULL]
-    x <- as_granges(x)
+    x <- plyranges::as_granges(x)
     x <- as.data.table(x)
     return(x)
   })

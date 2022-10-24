@@ -159,7 +159,7 @@ import_bams <- function(
     x[, cigar := NULL]
   })
 
-  bams <- purrr::map(bams, as_granges)
+  bams <- purrr::map(bams, plyranges::as_granges)
 
   ## Add GRanges and sample sheet to TSRexploreR object.
   experiment@experiment$TSSs <- bams
@@ -206,7 +206,7 @@ tss_aggregate <- function(experiment) {
   samples <- purrr::map(samples, function(x) {
     x <- as.data.table(x)
     x <- x[, .(score=.N), by=.(seqnames, start, end, strand)]
-    x <- as_granges(x)
+    x <- plyranges::as_granges(x)
     return(x)
   })
 
@@ -311,7 +311,7 @@ G_correction <- function(
   })
 
   ## Add data back to TSRexploreR object.
-  select_samples <- purrr::map(select_samples, as_granges)
+  select_samples <- purrr::map(select_samples, plyranges::as_granges)
   experiment@experiment$TSSs <- select_samples
 
   return(experiment)
