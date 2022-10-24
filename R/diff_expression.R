@@ -312,7 +312,7 @@ differential_expression <- function(
       old=c("logFC", "PValue", "logCPM"),
       new=c("log2FC", "pvalue", "mean_expr")
     )
-    de_results[, padj := p.adjust(pvalue, method="fdr")]
+    de_results[, padj := stats::p.adjust(pvalue, method="fdr")]
   }
 
   ## Split out ranges.

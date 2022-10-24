@@ -165,7 +165,7 @@ tss_shift <- function(
     variable.name="analysis", value.name="pval"
   )
   shifts[, c("FDR", "analysis") := list(
-    p.adjust(pval, "fdr"),
+    stats::p.adjust(pval, "fdr"),
     stringr::str_replace(analysis, "_pval$", "")
   )]
   shifts <- tidyr::pivot_wider(
