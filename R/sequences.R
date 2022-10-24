@@ -91,7 +91,7 @@ retrieve_seqs <- function(
   if (fixed_size) {
     selected_samples <- selected_samples %>%
       plyranges::anchor_center() %>%
-      mutate(width=1)
+      plyranges::mutate(width=1)
   }
 
   ## Expand ranges downstream if requested.

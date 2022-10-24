@@ -24,8 +24,6 @@ NULL
 
 #' @importFrom rtracklayer import export
 #' @importFrom GenomicRanges GRanges
-#' @importFrom plyranges
-#'   mutate
 
 NULL
 
