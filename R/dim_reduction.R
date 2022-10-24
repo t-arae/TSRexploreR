@@ -71,7 +71,7 @@ plot_reduction <- function(
   metadata[, c("file_1", "file_2") := NULL]
   metadata <- metadata[sample_name %in% colnames(count_mat)]
   metadata <- metadata[match(metadata[, sample_name], colnames(count_mat))]
-  metadata <- column_to_rownames(metadata, "sample_name")
+  metadata <- tibble::column_to_rownames(metadata, "sample_name")
 
   ## Create biplot.
   p <- count_mat %>%

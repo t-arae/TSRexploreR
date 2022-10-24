@@ -73,7 +73,7 @@ fit_de_model <- function(
   sample_sheet <- copy(experiment@meta_data$sample_sheet)
   sample_sheet[, c("file_1", "file_2") := NULL]
   assertthat::assert_that(all(all.vars(formula) %in% colnames(sample_sheet)))
-  sample_sheet <- column_to_rownames(sample_sheet, "sample_name")
+  sample_sheet <- tibble::column_to_rownames(sample_sheet, "sample_name")
 
   ## Get data from appropriate slot and convert to count matrix.
   sample_data <- experiment %>%

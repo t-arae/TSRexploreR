@@ -65,7 +65,7 @@
   count_data <- dcast(count_data, FHASH ~ sample, value.var="score", fill=0)
 
   count_data <- count_data %>%
-    column_to_rownames("FHASH") %>%
+    tibble::column_to_rownames("FHASH") %>%
     as.matrix
 
   ## Return the count matrix.
