@@ -26,7 +26,7 @@ NULL
 #' @importFrom GenomicRanges GRanges
 #' @importFrom plyranges
 #'   as_granges stretch join_overlap_left_directed mutate
-#'   anchor_3p anchor_5p anchor_center
+#'   anchor_3p anchor_5p
 
 NULL
 

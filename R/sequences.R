@@ -90,7 +90,7 @@ retrieve_seqs <- function(
   ## Reduce ranges to center point if requested.
   if (fixed_size) {
     selected_samples <- selected_samples %>%
-      anchor_center %>%
+      plyranges::anchor_center() %>%
       mutate(width=1)
   }
 
