@@ -3,7 +3,6 @@
 #' @description
 #' Generate gene tracks with GViz.
 #'
-#' @importFrom stringr str_count
 #' @importFrom GenomicFeatures genes transcripts promoters
 #'
 #' @inheritParams common_params
