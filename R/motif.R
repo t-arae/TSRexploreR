@@ -260,7 +260,6 @@ plot_sequence_logo <- function(
 #' Make a color map for the sequences around TSSs.
 #'
 #' @importFrom dplyr bind_cols
-#' @importFrom stringr str_length
 #'
 #' @inheritParams common_params
 #' @param base_colors Named vector specifying colors for each base.
