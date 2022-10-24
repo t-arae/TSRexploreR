@@ -62,7 +62,7 @@ conditions <- conditionals(shape_class == "peaked")
 p <- plot_sequence_logo(exp, data_conditions=conditions)
 
 # Sequence color map sorted by descending TSS score
-conditions <- conditionals(data_ordering=ordering(desc(score)))
+conditions <- conditionals(data_ordering=ordering(dplyr::desc(score)))
 p <- plot_sequence_colormap(exp, data_conditions=conditions)
 
 # Sequence logos split by TSS score quantile

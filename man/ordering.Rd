@@ -40,7 +40,7 @@ exp <- TSSs[1] \%>\%
   format_counts(data_type="tss")
 
 # Sequence color map sorted by descending score.
-conditions <- conditionals(data_ordering=ordering(desc(score)))
+conditions <- conditionals(data_ordering=ordering(dplyr::desc(score)))
 p <- plot_sequence_colormap(exp, data_conditions=conditions)
 }
 

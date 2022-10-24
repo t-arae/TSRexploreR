@@ -227,7 +227,7 @@ iq_range <- function(tss_table, iqr_upper, iqr_lower) {
   ]
 
   iqr_results <- tss_position[
-    dplyr::between(stats::ecdf, iqr_lower, iqr_upper)
+    dplyr::between(ecdf, iqr_lower, iqr_upper)
   ][,
     .(iqr_min=min(cum_sum),
     iqr_max=max(cum_sum),

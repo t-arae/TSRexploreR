@@ -39,7 +39,7 @@
 #'   tss_clustering(threshold=3)
 #'
 #' \dontrun{
-#' gene_tracks(exp, "YDR418W", samples=c(TSS="S288C_D_1", TSR="S288C_D_1"))
+#' # gene_tracks(exp, "YDR418W", samples=c(TSS="S288C_D_1", TSR="S288C_D_1"))
 #' }
 #'
 #' @export
@@ -144,6 +144,7 @@ gene_tracks <- function(
       preliminary_filter(FALSE, threshold)
     selected_TSSs <- purrr::map(selected_TSSs, function(x) {
       x <- x[, ..keep_cols]
+      x <- x[, keep_cols, with = FALSE]
       x <- plyranges::as_granges(x)
       return(x)
     })
@@ -154,7 +155,7 @@ gene_tracks <- function(
       extract_counts("tsr", tsr_samples, use_normalized) %>%
       preliminary_filter(FALSE, threshold)
     selected_TSRs <- purrr::map(selected_TSRs, function(x) {
-      x <- x[, ..keep_cols]
+      x <- x[, keep_cols, with = FALSE]
       x <- plyranges::as_granges(x)
       return(x)
     })

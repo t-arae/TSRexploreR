@@ -46,7 +46,7 @@
 #' p <- plot_sequence_logo(exp, data_conditions=conditions)
 #'
 #' # Sequence color map sorted by descending TSS score
-#' conditions <- conditionals(data_ordering=ordering(desc(score)))
+#' conditions <- conditionals(data_ordering=ordering(dplyr::desc(score)))
 #' p <- plot_sequence_colormap(exp, data_conditions=conditions)
 #'
 #' # Sequence logos split by TSS score quantile
@@ -143,7 +143,7 @@ conditionals <- function(
 #'   format_counts(data_type="tss")
 #'
 #' # Sequence color map sorted by descending score.
-#' conditions <- conditionals(data_ordering=ordering(desc(score)))
+#' conditions <- conditionals(data_ordering=ordering(dplyr::desc(score)))
 #' p <- plot_sequence_colormap(exp, data_conditions=conditions)
 #' }
 #'
@@ -371,7 +371,7 @@ condition_data <- function(
 
   ## quantile the aggregated features.
   if (quantiling$descending) {
-    ord[, row_quantile := ntile(desc(ord[[quantiling$by]]), n=quantiling$n)]
+    ord[, row_quantile := dplyr::ntile(dplyr::desc(ord[[quantiling$by]]), n=quantiling$n)]
   } else {
     ord[, row_quantile := ntile(ord[[quantiling$by]], n=quantiling$n)]
   }
