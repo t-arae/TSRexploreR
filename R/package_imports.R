@@ -19,7 +19,7 @@ NULL
 #'   geom_bar geom_hline scale_fill_gradient2 scale_color_gradient2
 #' @importFrom dplyr pull desc
 #' @importFrom assertthat
-#'   is.count is.flag
+#'   is.count
 #' @importFrom rlang .data enquo enquos quo_is_null "!!" "!!!" quo_text ensym
 
 NULL

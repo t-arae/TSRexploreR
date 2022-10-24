@@ -58,7 +58,7 @@ plot_reduction <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
   data_type <- match.arg(stringr::str_to_lower(data_type), c("tss", "tsr", "tss_features", "tsr_features"))
-  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
   assertthat::assert_that(is.null(remove_var) || (remove_var > 0 & remove_var < 1))
 
   ## Grab counts.

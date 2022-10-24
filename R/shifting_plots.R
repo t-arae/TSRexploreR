@@ -162,7 +162,7 @@ plot_shift_count <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.character(samples))
   assertthat::assert_that(is.count(ncol))
-  assertthat::assert_that(is.flag(return_table))
+  assertthat::assert_that(assertthat::is.flag(return_table))
 
   ## Get samples.
   if (all(samples == "all")) {

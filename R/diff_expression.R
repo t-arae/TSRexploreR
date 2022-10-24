@@ -258,7 +258,7 @@ differential_expression <- function(
     c("name", "contrast", "coef")
   )
   assertthat::assert_that(is.vector(comparison))
-  assertthat::assert_that(is.flag(shrink_lfc))
+  assertthat::assert_that(assertthat::is.flag(shrink_lfc))
 
   ## Get appropriate model.
   de_model <- switch(

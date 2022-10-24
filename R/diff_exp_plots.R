@@ -277,7 +277,7 @@ export_for_enrichment <- function(
   assertthat::assert_that(is.character(de_comparisons))
   assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
   assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
-  assertthat::assert_that(is.flag(keep_unchanged))
+  assertthat::assert_that(assertthat::is.flag(keep_unchanged))
   assertthat::assert_that(is.null(anno_categories) || is.character(anno_categories))
 
   ## Get DE comparisons.
@@ -385,8 +385,8 @@ plot_num_de <- function(
   assertthat::assert_that(is.character(de_comparisons))
   assertthat::assert_that(is.numeric(log2fc_cutoff) && log2fc_cutoff >= 0)
   assertthat::assert_that(is.numeric(fdr_cutoff) && (fdr_cutoff > 0 & fdr_cutoff <= 1))
-  assertthat::assert_that(is.flag(keep_unchanged))
-  assertthat::assert_that(is.flag(return_table))
+  assertthat::assert_that(assertthat::is.flag(keep_unchanged))
+  assertthat::assert_that(assertthat::is.flag(return_table))
 
   ## Get appropriate samples.
   de_samples <- extract_de(experiment, data_type, de_comparisons)

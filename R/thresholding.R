@@ -21,7 +21,7 @@
   assertthat::assert_that(is.numeric(max_threshold) && max_threshold >= 5)
   assertthat::assert_that(is.character(samples))
   assertthat::assert_that(is.numeric(steps) && steps >= 0.1)
-  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
 
   ## Get settings information.
   feature_type <- experiment@settings$annotation[["feature_type"]]
@@ -146,8 +146,8 @@ plot_threshold_exploration <- function(
   assertthat::assert_that(is.numeric(min_threshold) && max_threshold > min_threshold+steps)
   assertthat::assert_that(is.character(samples))
   assertthat::assert_that(is.numeric(steps) && steps >= 0.1)
-  assertthat::assert_that(is.flag(use_normalized))
-  assertthat::assert_that(is.flag(return_table))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(return_table))
 
   ## Threshold exploration.
   threshold_data <- .explore_thresholds(
@@ -222,7 +222,7 @@ apply_threshold <- function(
   assertthat::assert_that(is(experiment, "tsr_explorer"))
   assertthat::assert_that(is.numeric(threshold) && threshold > 0)
   assertthat::assert_that(is.null(n_samples) || is.count(n_samples))
-  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
 
   ## Retrieve selected samples.
   select_samples <- extract_counts(experiment, "tss", "all", use_normalized)

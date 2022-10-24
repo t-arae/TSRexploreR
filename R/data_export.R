@@ -60,7 +60,7 @@ tss_export <- function(
     c("bedgraph", "table", "bigwig")
   )
   assertthat::assert_that(is.na(out_dir) || is.character(out_dir))
-  assertthat::assert_that(is.flag(diff_tss))
+  assertthat::assert_that(assertthat::is.flag(diff_tss))
   assertthat::assert_that(
     is.null(genome_assembly) || is.character(genome_assembly) ||
     is(genome_assembly, "BSgenome")
@@ -203,7 +203,7 @@ tsr_export <- function(
   assertthat::assert_that(is.character(samples))
   file_type <- match.arg(stringr::str_to_lower(file_type), c("bed", "table"))
   if (!is.na(out_dir) && !is(out_dir, "character")) stop("out_dir must be NA or a character")
-  assertthat::assert_that(is.flag(diff_tsr))
+  assertthat::assert_that(assertthat::is.flag(diff_tsr))
 
   ## Retrieve samples.
   if (!diff_tsr) {

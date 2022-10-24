@@ -79,15 +79,15 @@ plot_correlation <- function(
     c("pearson", "spearman")
   )
   assertthat::assert_that(is.numeric(font_size) && font_size > 0)
-  assertthat::assert_that(is.flag(cluster_samples))
+  assertthat::assert_that(assertthat::is.flag(cluster_samples))
   assertthat::assert_that(is.null(heatmap_colors) | is.character(heatmap_colors))
-  assertthat::assert_that(is.flag(show_values))
-  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(show_values))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
   assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold > 0)
   )
-  assertthat::assert_that(is.flag(return_matrix))
+  assertthat::assert_that(assertthat::is.flag(return_matrix))
   assertthat::assert_that(is.count(n_samples))
 
   ## Get data from proper slot.

@@ -56,15 +56,15 @@ import_bams <- function(
 
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
-  assertthat::assert_that(is.flag(paired))
+  assertthat::assert_that(assertthat::is.flag(paired))
   assertthat::assert_that(
     is.null(sample_sheet) ||
     (is.character(sample_sheet) | is.data.frame(sample_sheet))
   )
   assertthat::assert_that(is.null(soft_remove) || is.count(soft_remove))
-  assertthat::assert_that(is.null(proper_pair) || is.flag(proper_pair))
-  assertthat::assert_that(is.flag(remove_secondary))
-  assertthat::assert_that(is.flag(remove_duplicate))
+  assertthat::assert_that(is.null(proper_pair) || assertthat::is.flag(proper_pair))
+  assertthat::assert_that(assertthat::is.flag(remove_secondary))
+  assertthat::assert_that(assertthat::is.flag(remove_duplicate))
 
   ## Prepare sample sheet if necessary.
   sample_sheet_type <- dplyr::case_when(

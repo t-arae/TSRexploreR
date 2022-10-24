@@ -46,12 +46,12 @@ retrieve_seqs <- function(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold >= 0)
   )
-  assertthat::assert_that(is.flag(dominant))
+  assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(
     is.null(extend_upstream) ||
     is.count(extend_upstream)
   )
-  assertthat::assert_that(is.flag(fixed_size))
+  assertthat::assert_that(assertthat::is.flag(fixed_size))
   assertthat::assert_that(
     is.null(extend_downstream) ||
     is.count(extend_downstream)

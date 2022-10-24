@@ -64,10 +64,10 @@ plot_tsr_metric <- function(
     c("violin", "jitter", "box", "boxjitter")
   )
   assertthat::assert_that(is.character(samples))
-  assertthat::assert_that(is.flag(log2_transform))
+  assertthat::assert_that(assertthat::is.flag(log2_transform))
   assertthat::assert_that(is.count(ncol))
-  assertthat::assert_that(is.flag(use_normalized))
-  assertthat::assert_that(is.flag(dominant))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(dominant))
   assertthat::assert_that(is.null(threshold) || (is.numeric(threshold) && threshold >= 0))
   assertthat::assert_that(is.null(data_conditions) || is.list(data_conditions))
 

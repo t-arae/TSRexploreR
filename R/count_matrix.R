@@ -18,7 +18,7 @@
     stringr::str_to_lower(data_type),
     c("tss", "tsr")
   )
-  assertthat::assert_that(is.flag(use_normalized))
+  assertthat::assert_that(assertthat::is.flag(use_normalized))
   assertthat::assert_that(
     is.null(threshold) ||
     (is.numeric(threshold) && threshold > 0)
