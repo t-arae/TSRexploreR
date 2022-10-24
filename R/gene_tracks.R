@@ -202,7 +202,7 @@ gene_tracks <- function(
 
   # Data tracks.
   if (use_tss) {
-    tss_tracks <- imap(split_TSSs, function(gr, sample_name) {
+    tss_tracks <- purrr::imap(split_TSSs, function(gr, sample_name) {
       track_args <- list(
         gr, name=sample_name, cex.title=axis_scale, cex.axis=axis_scale,
         col.histogram=tss_colors[sample_name],
@@ -216,7 +216,7 @@ gene_tracks <- function(
   }
 
   if (use_tsr) {
-    tsr_tracks <- imap(selected_TSRs, function(gr, sample_name) {
+    tsr_tracks <- purrr::imap(selected_TSRs, function(gr, sample_name) {
       anno_track <- Gviz::AnnotationTrack(
         gr, name=sample_name, fill=tsr_colors[sample_name],
         cex.title=axis_scale, col=NA 
@@ -225,7 +225,7 @@ gene_tracks <- function(
   }
 
   # Combine and plot tracks.
-  tracks <- imap(samples, function(x, y) {
+  tracks <- purrr::imap(samples, function(x, y) {
     track <- list()
     if (y == "tss") {
       track[[stringr::str_c(x, ".pos")]] <- tss_tracks[[stringr::str_c(x, ".pos")]]

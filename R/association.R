@@ -51,7 +51,7 @@ associate_with_tsr <- function(
     })
   } else {
     tss <- experiment@counts$TSSs$raw %>%
-      imap(~purrr::set_names(list(.x), .y))
+      purrr::imap(~purrr::set_names(list(.x), .y))
   }
 
   ## Get TSRs.
@@ -65,7 +65,7 @@ associate_with_tsr <- function(
   }
 
   ## Associate TSSs with TSRs.
-  tss <- imap(tsr, function(tsr, tsr_name) {
+  tss <- purrr::imap(tsr, function(tsr, tsr_name) {
     tsr[, tsr_sample := tsr_name]
     setkey(tsr, seqnames, strand, start, end)
     tss <- tss[[tsr_name]]
