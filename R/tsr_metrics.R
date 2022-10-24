@@ -178,8 +178,8 @@ peak_balance <- function(tss_table) {
     !is.na(TSR_FHASH) & score > 1,
     .(score, tsr_score, tss_pos=ifelse(
       strand == "+",
-      start - median(range(start)),
-      median(range(start)) - start
+      start - stats::median(range(start)),
+      stats::median(range(start)) - start
     )),
     by=.(sample, TSR_FHASH)
   ]
@@ -209,8 +209,8 @@ iq_range <- function(tss_table, iqr_upper, iqr_lower) {
     !is.na(TSR_FHASH) & score > 1,
     .(score, seqnames, start, strand, tss_pos=ifelse(
       strand == "+",
-      start - median(range(start)),
-      median(range(start)) - start
+      start - stats::median(range(start)),
+      stats::median(range(start)) - start
     )),
     by=.(sample, TSR_FHASH)
   ]

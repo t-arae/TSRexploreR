@@ -1,5 +1,5 @@
 #' @import data.table
-#' @importFrom stats as.formula cor ecdf median
+#' @importFrom stats as.formula cor ecdf
 
 NULL
 
