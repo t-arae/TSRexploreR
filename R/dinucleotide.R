@@ -141,7 +141,7 @@ plot_dinucleotide_frequencies <- function(
     )
 
   if (data_grouping != "none") {
-    p <- p + facet_grid(as.formula(stringr::str_c(data_grouping, "~", "sample")))
+    p <- p + facet_grid(stats::as.formula(stringr::str_c(data_grouping, "~", "sample")))
   } else {
     p <- p + facet_wrap(~ sample, ncol=ncol)
   }
