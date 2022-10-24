@@ -25,7 +25,7 @@ NULL
 #' @importFrom rtracklayer import export
 #' @importFrom GenomicRanges GRanges
 #' @importFrom plyranges
-#'   join_overlap_left_directed mutate
+#'   mutate
 
 NULL
 
