@@ -2,7 +2,6 @@
 #'
 #' Analyze sample similarity with correlation analysis.
 #'
-#' @importFrom circlize colorRamp2 
 #' @importFrom grid gpar grid.text
 #'
 #' @inheritParams common_params
