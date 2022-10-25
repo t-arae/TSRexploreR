@@ -41,6 +41,7 @@ tss_clustering <- function(
   max_width=NULL,
   singlet_threshold=NULL
 ) {
+  .n_samples <- FHASH <- score <- ..keep_cols <- seqnames <- strand <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -123,6 +124,8 @@ tss_clustering <- function(
 ## @param maxwidth Maximum allowable TSR width.
 
 .aggr_scores <- function(granges, maxdist, maxwidth, sthresh) {
+  . <- score <- normalized_score <- seqnames <- strand <-
+    i.start <- i.end <- width <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(granges, "GRanges"))
@@ -156,8 +159,8 @@ tss_clustering <- function(
   overlaps[, c("i.start", "i.end") := NULL]
   overlaps <- overlaps %>%
     plyranges::as_granges() %>%
-    sort %>%
-    as.data.table
+    sort() %>%
+    as.data.table()
 
   ## If max_width is set, remove TSRs that are too wide.
   if (!is.null(maxwidth)) {
