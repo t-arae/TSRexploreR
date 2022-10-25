@@ -84,6 +84,9 @@ tss_shift <- function(
   n_resamples=1000L,
   fdr_cutoff=0.05
 ){
+  FHASH <- seqnames <- strand <- score <- count <- . <- i.start <- i.end <-
+    distance <- pval <- analysis <- FDR <- shift_score <- shift_score_FDR <-
+    FDR <- emd_FDR <- NULL
 
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -146,8 +149,8 @@ tss_shift <- function(
   ## Prepare table for shift score calculation.
   overlap <- overlap %>%
     plyranges::as_granges() %>%
-    sort %>%
-    as.data.table
+    sort() %>%
+    as.data.table()
   overlap <- overlap[, .(sample, seqnames, start, end, strand, score, FHASH, distance)]
 
   ## Calculate the shift scores.
@@ -225,7 +228,8 @@ ShiftScores <- function(
   nthresh=2,
   check_sort=TRUE
 ){
-
+  FHASH <- distance <- score <- sample_indicator <- fhash <- distances <-
+    scores <- sum_score <- toosmall <- NULL
   dat <- tss_table %>%
     tibble::as_tibble() %>%
     dplyr::select(fhash=FHASH, sample_indicator=sample, distances=distance, scores=score)
@@ -272,7 +276,7 @@ ShiftScores <- function(
 
   ## Change output to data.frame and add the coordinates back.
   outdf <- out %>%
-    t %>%
+    t() %>%
     `colnames<-`(c(
       "shift_score", "pos_component", "neg_component",
       "emd", "shift_score_pval","emd_pval"
