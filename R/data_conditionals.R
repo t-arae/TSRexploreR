@@ -325,6 +325,7 @@ condition_data <- function(
   signal_data,
   ordering
 ) {
+  seqnames <- strand <- row_order <- . <- CFHASH <- NULL
 
   ## Create consensus ranges with aggregated scores.
   signal_data <- rbindlist(signal_data, idcol="sample")
@@ -362,6 +363,7 @@ condition_data <- function(
   signal_data,
   quantiling
 ) {
+  seqnames <- strand <- row_quantile <- . <- CFHASH <- NULL
 
   ## Create consensus ranges with aggregated scores.
   signal_data <- rbindlist(signal_data, idcol="sample")
@@ -402,6 +404,7 @@ condition_data <- function(
   signal_data,
   grouping
 ) {
+  row_groups <- NULL
   purrr::walk(signal_data, function(x) {
     x[, row_groups := x[[grouping]]]
   })
@@ -416,6 +419,7 @@ condition_data <- function(
   signal_data,
   conditionals
 ) {
+  CFHASH <- seqnames <- strand <- samples <- NULL
 
   ## Reduce ranges of samples into consensus ranges.
   cranges <- signal_data %>%
@@ -460,6 +464,7 @@ condition_data <- function(
 #' @param threshold Raw count threshold for a TSS or TSR to be considered.
 
 preliminary_filter <- function(signal_data, dominant, threshold) {
+  score <- NULL
   
   ## Retain only dominant features if required.
   if (dominant) {
