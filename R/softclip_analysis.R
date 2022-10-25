@@ -53,6 +53,7 @@ softclip_composition <- function(
   return_table=FALSE,
   ...
 ) {
+  n_soft <- seq_soft <- position <- . <- base <- NULL
 
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -178,6 +179,7 @@ softclip_histogram <- function(
   ncol=3,
   return_table=FALSE
 ) {
+  . <- n_soft <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
