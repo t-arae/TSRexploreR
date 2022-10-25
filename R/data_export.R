@@ -101,14 +101,14 @@ tss_export <- function(
     purrr::iwalk(export_samples, function(x, y) {
       x <- sort(plyranges::as_granges(x))
       
-      pos_data <- x[strand(x) == "+"]
+      pos_data <- x[BiocGenerics::strand(x) == "+"]
       pos_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_pos.bedgraph")
       )
       rtracklayer::export(pos_data, pos_file, "bedgraph")
 
-      min_data <- x[strand(x) == "-"]
+      min_data <- x[BiocGenerics::strand(x) == "-"]
       min_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_min.bedgraph")
@@ -128,14 +128,14 @@ tss_export <- function(
     })
   } else if (file_type == "bigwig") {
     purrr::iwalk(export_samples, function(x, y) {
-      pos_data <- x[strand(x) == "+"]
+      pos_data <- x[BiocGenerics::strand(x) == "+"]
       pos_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_pos.bigwig") 
       )
       rtracklayer::export(pos_data, pos_file, "bigwig")
 
-      min_data <- x[strand(x) == "-"]
+      min_data <- x[BiocGenerics::strand(x) == "-"]
       min_file <- file.path(
         ifelse(is.na(out_dir), getwd(), out_dir),
         stringr::str_c(y, "_min.bigwig")
