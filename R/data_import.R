@@ -57,6 +57,7 @@ tss_import <- function(
   file_type="auto",
   delim="\t"
 ) {
+  . <- file_1 <- file_2 <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -90,11 +91,11 @@ tss_import <- function(
   ## Try to figure out file type if not specified.
   if (file_type == "auto") {
     file_ext <- sample_sheet[, .(file_1, file_2)] %>%
-      unlist %>%
+      unlist() %>%
       purrr::discard(is.na) %>%
       stringr::str_extract("(?<=\\.)[[:alpha:]]+$") %>%
       stringr::str_to_lower() %>%
-      unique
+      unique()
 
     assertthat::assert_that(
       assertthat::is.string(file_ext),
@@ -141,14 +142,16 @@ tss_import <- function(
 ## @param delim Delimiter for table.
 
 .import_tables <- function(sample_sheet, delim) {
+  . <- sample_name <- file_1 <- NULL
+
   samples <- sample_sheet[, .(sample_name, file_1)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
     purrr::map(function(x) {
       x <- x %>%
-        as.character %>%
+        as.character() %>%
         fread(sep=delim) %>%
         plyranges::as_granges() %>%
-        sort
+        sort()
       return(x)
     })
 
@@ -160,6 +163,8 @@ tss_import <- function(
 ## @inheritParams common_params
 
 .import_bedgraphs <- function(sample_sheet) {
+  . <- sample_name <- file_1 <- file_2 <- NULL
+
   samples <- sample_sheet[, .(sample_name, file_1, file_2)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
     purrr::map(function(x) {
@@ -190,6 +195,8 @@ tss_import <- function(
 ## @inheritParams common_params
 
 .import_bigwigs <- function(sample_sheet) {
+  . <- sample_name <- file_1 <- file_2 <- NULL
+
   samples <- sample_sheet[, .(sample_name, file_1, file_2)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
     purrr::map(function(x) {
@@ -220,11 +227,13 @@ tss_import <- function(
 ## @inheritParams common_params
 
 .import_ctss <- function(sample_sheet) {
+  . <- sample_name <- file_1 <- NULL
+  
   samples <- sample_sheet[, .(sample_name, file_1)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
     purrr::map(function(x) {
       x <- x %>%
-        as.character %>%
+        as.character() %>%
         fread(sep="\t", header=FALSE)
       setnames(
         x, old=seq_len(4),
@@ -297,6 +306,7 @@ tsr_import <- function(
   file_type="auto",
   delim="\t"
 ) {
+  . <- file_1 <- file_2 <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -330,11 +340,11 @@ tsr_import <- function(
   ## Try to figure out file type if not specified.
   if (file_type == "auto") {
     file_ext <- sample_sheet[, .(file_1, file_2)] %>%
-      unlist %>%
+      unlist() %>%
       purrr::discard(is.na) %>%
       stringr::str_extract("(?<=\\.)[[:alpha:]]+$") %>%
       stringr::str_to_lower() %>%
-      unique
+      unique()
 
     assertthat::assert_that(
       assertthat::is.string(file_ext),
@@ -377,14 +387,15 @@ tsr_import <- function(
 ## @inheritParams common_params
 
 .import_beds <- function(sample_sheet) {
-
+  . <- sample_name <- file_1 <- NULL
+  
   samples <- sample_sheet[, .(sample_name, file_1)] %>%
     split(by="sample_name", keep.by=FALSE) %>%
     purrr::map(function(x) {
       x <- x %>%
-        as.character %>%
+        as.character() %>%
         rtracklayer::import("bed") %>%
-        sort
+        sort()
       return(x)
     })
 
