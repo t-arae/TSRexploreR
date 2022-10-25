@@ -35,6 +35,8 @@ tsr_metrics <- function(
   iqr_lower=0.10,
   iqr_upper=0.90
 ) {
+  TSR_FHASH <- . <- tsr_sample <- shape_class <- iqr_min <- iqr_max <-
+    iqr_width <- iqr_coords <- NULL
 
   ## Input Checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -72,7 +74,7 @@ tsr_metrics <- function(
 
   ## Add metrics back to TSRs.
   tsr_names <- select_samples[["tsr_sample"]] %>%
-    unique %>%
+    unique() %>%
     purrr::discard(~ is.na(.))
   
   select_TSRs <- experiment %>%
@@ -129,6 +131,7 @@ tsr_metrics <- function(
 ## @param tss_table data.table of TSSs
 
 shape_index <- function(tss_table) {
+  TSR_FHASH <- score <- . <- tsr_score <- shape_class <- NULL
   
   ## Calculate shape index.
   si_results <- tss_table[
@@ -153,6 +156,7 @@ shape_index <- function(tss_table) {
 ## @param tss_table data.table of TSSs
 
 peak_concentration <- function(tss_table) {
+  TSR_FHASH <- score <- . <- NULL
   
   ## Calculate peak concentration.
   pc_results <- tss_table[
@@ -172,6 +176,7 @@ peak_concentration <- function(tss_table) {
 ## @param tss_table data.table of TSSs
 
 peak_balance <- function(tss_table) {
+  TSR_FHASH <- score <- . <- tsr_score <- strand <- tss_pos <- NULL
 
   ## Get TSS position relative to TSR midpoints.
   tss_position <- tss_table[
@@ -203,6 +208,8 @@ peak_balance <- function(tss_table) {
 ## @inheritParams tsr_metrics
 
 iq_range <- function(tss_table, iqr_upper, iqr_lower) {
+  TSR_FHASH <- score <- . <- seqnames <- strand <- tss_pos <-
+    cum_sum <- ecdf <- NULL
   
   ## Get TSS positions relative to TSR midpoints.
   tss_position <- tss_table[
