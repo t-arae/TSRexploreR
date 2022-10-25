@@ -51,6 +51,7 @@ plot_detected_features <- function(
   return_table=FALSE,
   ...
 ) {
+  feature_type <- total <- count_type <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -142,6 +143,7 @@ plot_detected_features <- function(
 #' @param grouping_status Whether there is a grouping variable.
 
 .count_features <- function(sample_data, grouping_status) {
+  . <- simple_annotations <- feature <- promoter <- NULL
 
   if (grouping_status != "none") {
     setnames(sample_data, old=grouping_status, new="grouping")
