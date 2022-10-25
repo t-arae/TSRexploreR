@@ -53,6 +53,7 @@ plot_dinucleotide_frequencies <- function(
   return_table=FALSE,
   ...
 ) {
+  . <- mean_freq <- dinucleotide <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -156,6 +157,7 @@ plot_dinucleotide_frequencies <- function(
 ## @param grouping_status Whether there is quantiling or grouping.
 
 .calculate_freqs <- function(seqs, grouping_status) {
+  . <- dinucleotide <- count <- NULL
 
   ## Get the dinucleotide frequencies.
   if (grouping_status == "none") {
