@@ -155,6 +155,7 @@ plot_volcano <- function(
   ncol=1,
   ...
 ) {
+  de_status <- padj <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -270,6 +271,7 @@ export_for_enrichment <- function(
   keep_unchanged=FALSE,
   anno_categories=NULL
 ) {
+  simple_annotations <- de_status <- NULL
 
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -375,6 +377,7 @@ plot_num_de <- function(
   return_table=FALSE,
   ...
 ) {
+  de_status <- . <- samples <- NULL
 
   ## Input checks.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
