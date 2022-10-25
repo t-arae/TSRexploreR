@@ -50,6 +50,7 @@ mark_dominant <- function(
   mark_per="default",
   exclude_antisense=TRUE
 ) {
+  feature_type <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
