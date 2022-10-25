@@ -118,6 +118,7 @@ fit_de_model <- function(
   sample_sheet,
   formula
 ) {
+  . <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is.matrix(count_data))
@@ -157,6 +158,7 @@ fit_de_model <- function(
   sample_sheet,
   formula
 ) {
+  . <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is.matrix(count_data))
@@ -238,6 +240,7 @@ differential_expression <- function(
   comparison,
   shrink_lfc=FALSE
 ) {
+  lfcSE <- padj <- pvalue <- feature <- NULL
 
   ## If LFC shrinkage is true, check for apeglm.
   if (shrink_lfc) {
@@ -346,6 +349,7 @@ differential_expression <- function(
   log2fc_cutoff,
   fdr_cutoff
 ) {
+  de_status <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is.data.frame(de_results))
