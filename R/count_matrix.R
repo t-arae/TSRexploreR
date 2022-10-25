@@ -11,6 +11,7 @@
   use_normalized=FALSE,
   threshold=NULL
 ) {
+  seqnames <- strand <- FHASH <- width <- . <- score <- NULL
 
   ## Input check.
   assertthat::assert_that(is.list(count_data) && assertthat::has_attr(count_data, "names"))
@@ -37,7 +38,7 @@
       purrr::map(plyranges::as_granges) %>%
       plyranges::bind_ranges() %>%
       plyranges::reduce_ranges_directed() %>%
-      as.data.table
+      as.data.table()
 
     # Prepare reduced ranges for overlap with original ranges.
     setkey(merged_ranges, seqnames, strand, start, end)
@@ -66,7 +67,7 @@
 
   count_data <- count_data %>%
     tibble::column_to_rownames("FHASH") %>%
-    as.matrix
+    as.matrix()
 
   ## Return the count matrix.
   return(count_data)
