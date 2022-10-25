@@ -118,6 +118,7 @@ annotate_features <- function(
   feature_type,
   annotation_data
 ) {
+  geneStrand <- simple_annotations <- strand <- NULL
 
   ## Convert to GRanges.
   sample_table <- plyranges::as_granges(sample_table)
