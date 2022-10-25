@@ -59,6 +59,7 @@ merge_samples <- function(
   max_distance=NULL,
   genome_assembly=NULL
 ) {
+  ..keep <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -159,6 +160,7 @@ merge_samples <- function(
   samples,
   norm_status
 ) {
+  . <- score <- normalized_score <- seqnames <- strand <- FHASH <- NULL
 
   if (norm_status) {
     samples <- samples[,
@@ -191,12 +193,14 @@ merge_samples <- function(
   experiment,
   genome_assembly
 ) {
+  group_ID <- . <- seqnames <- strand <- score <- normalized_score <-
+    FHASH <- NULL
 
   ## Open genome assembly.
   genome_assembly <- .prepare_assembly(genome_assembly, experiment)
 
   ## Create GRanges.
-  samples_granges <- plyranges::as_granges(samples)    
+  samples_granges <- plyranges::as_granges(samples)
 
   ## Expand ranges if required and remove out of bounds.
   if (!is.null(max_distance)) {
