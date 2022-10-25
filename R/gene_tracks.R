@@ -61,6 +61,7 @@ gene_tracks <- function(
   ymax=NA,
   anno_pos="top"
 ) {
+  strand <- NULL
 
   ## Check for Gviz library.
   if (!requireNamespace("Gviz", quietly = TRUE)) {
