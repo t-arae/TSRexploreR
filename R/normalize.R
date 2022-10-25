@@ -56,6 +56,7 @@ normalize_counts <- function(
   threshold=1,
   n_samples=1
 ) {
+  . <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -122,8 +123,8 @@ normalize_counts <- function(
     rbindlist(idcol="sample") %>%
     {merge(normalized_counts, ., by=c("sample", "FHASH"), all.y=TRUE)} %>%
     plyranges::as_granges() %>%
-    sort %>%
-    as.data.table %>%
+    sort() %>%
+    as.data.table() %>%
     split(by="sample", keep.by=FALSE)
 
   experiment <- set_count_slot(
@@ -139,6 +140,7 @@ normalize_counts <- function(
 ## @param count_matrix count matrix
 
 .edger_normalize <- function(count_matrix) {
+  . <- NULL
   
   ## Input check.
   assertthat::assert_that(is.matrix(count_matrix))
@@ -158,6 +160,7 @@ normalize_counts <- function(
 ## @param coldata column data.
 
 .deseq2_normalize <- function(count_matrix, coldata) {
+  . <- NULL
 
   ## Validate inputs.
   assertthat::assert_that(is.matrix(count_matrix))
