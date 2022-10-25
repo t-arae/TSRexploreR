@@ -47,6 +47,9 @@ import_bams <- function(
   remove_secondary=TRUE,
   remove_duplicate=FALSE
 ) {
+  file_1 <- sample_name <- . <- seqnames.first <- start.first <- end.first <-
+    strand.first <- cigar.first <- seq.first <- seqnames <- strand <- cigar <-
+    n_soft <- NULL
 
   ## Check if GenomicAlignments is installed.
   if (!requireNamespace("GenomicAlignments", quietly = TRUE)) {
@@ -195,6 +198,7 @@ import_bams <- function(
 #' @export
 
 tss_aggregate <- function(experiment) {
+  . <- seqnames <- strand <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -256,6 +260,7 @@ G_correction <- function(
   experiment,
   assembly=NULL
 ) {
+  . <- seq_soft <- freq <- count <- plus_one <- n_soft <- strand <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
