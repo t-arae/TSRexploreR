@@ -36,6 +36,7 @@ associate_with_tsr <- function(
   experiment,
   sample_list=NULL
 ) {
+  tsr_sample <- seqnames <- strand <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -93,8 +94,8 @@ associate_with_tsr <- function(
       }
       overlap <- overlap %>%
         plyranges::as_granges() %>%
-        sort %>%
-        as.data.table
+        sort() %>%
+        as.data.table()
       return(overlap)
     })
   })
