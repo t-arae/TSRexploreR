@@ -11,6 +11,7 @@
   upstream=1000,
   downstream=1000
 ) {
+  . <- score <- distanceToTSS <- feature <- FHASH <- NULL
 
   ## Create matrix.
   annotated_data <- annotated_data[, .(sample, score, distanceToTSS, feature, FHASH)]
@@ -20,7 +21,7 @@
     CJ(sample=sample, feature=feature, distanceToTSS=seq(-upstream, downstream, 1), unique=TRUE),
     , on=.(sample, feature, distanceToTSS)
   ]
-  setnafill(tss_mat, col="score", fill=0)
+  setnafill(tss_mat, cols="score", fill=0)
   tss_mat[,
     distanceToTSS := factor(distanceToTSS, levels=seq(-upstream, downstream, 1))
   ]
@@ -152,6 +153,7 @@ plot_heatmap <- function(
   diff_heatmap_list=NULL,
   ...
 ) {
+  . <- score <- distanceToTSS <- feature <- feature_type <- row_order <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -436,6 +438,8 @@ plot_heatmap <- function(
   upstream=1000,
   downstream=1000
 ) {
+  strand <- geneStart <- geneEnd <- . <- feature <- score <- FHASH <-
+    startDist <- endDist <- tsr_id <- distanceToTSS <- NULL
 
   ## Prepare data for plotting.
   annotated_data[,
@@ -494,6 +498,7 @@ plot_heatmap <- function(
   order_descending,
   order_samples
 ) {
+  distanceToTSS <- feature <- aggr_var <- row_order <- NULL
 
   an_data <- copy(annotated_data)
   an_data[, c("score", "feature", "distanceToTSS") := NULL]
@@ -546,6 +551,7 @@ plot_heatmap <- function(
   n_quantiles,
   quantile_samples
 ) {
+  distanceToTSS <- feature <- row_quantile <- aggr_var <- NULL
 
   an_data <- copy(annotated_data)
   an_data[, c("score", "feature", "distanceToTSS") := NULL]
@@ -618,6 +624,7 @@ plot_heatmap <- function(
   order_descending,
   order_samples
 ) {
+  distanceToTSS <- feature <- score <- aggr_var <- row_order <-NULL
 
   if (data_type == "tss") {
     merged <- copy(count_data)
