@@ -15,6 +15,8 @@
   use_normalized=FALSE,
   min_threshold=1
 ) {
+  score <- promoter_proximity <- simple_annotations <- n_features <- . <-
+    n_promoter_proximal <- n_promoter_distal <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -217,6 +219,7 @@ apply_threshold <- function(
   n_samples=1,
   use_normalized=FALSE
 ) {
+  FHASH <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
