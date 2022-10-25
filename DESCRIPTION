@@ -67,7 +67,6 @@ Suggests:
     cowplot,
     ComplexHeatmap,
     GenomicAlignments
-RoxygenNote: 7.1.2
 Collate: 
     'RcppExports.R'
     'TSRexplore.R'

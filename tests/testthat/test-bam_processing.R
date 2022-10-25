@@ -13,7 +13,7 @@ test_that("Import and Process BAM", {
     expect_named("S288C")
   tsre@experiment$TSSs$S288C %>%
     expect_s4_class("GRanges") %>%
-    {expect_named(mcols(.), c("seq_soft", "n_soft"))}
+    {expect_named(S4Vectors::mcols(.), c("seq_soft", "n_soft"))}
 
   ## G correction.
   tsre <- G_correction(tsre)
@@ -23,7 +23,7 @@ test_that("Import and Process BAM", {
     expect_named("S288C")
   tsre@experiment$TSSs$S288C %>%
     expect_s4_class("GRanges") %>%
-    {expect_named(mcols(.), c("seq_soft", "n_soft"))}
+    {expect_named(S4Vectors::mcols(.), c("seq_soft", "n_soft"))}
 
   ## TSS aggregation.
   tsre <- tss_aggregate(tsre)
@@ -33,5 +33,5 @@ test_that("Import and Process BAM", {
     expect_named("S288C")
   tsre@experiment$TSSs$S288C %>%
     expect_s4_class("GRanges") %>%
-    {expect_named(mcols(.), "score")}
+    {expect_named(S4Vectors::mcols(.), "score")}
 })
