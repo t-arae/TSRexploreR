@@ -373,7 +373,7 @@ condition_data <- function(
   if (quantiling$descending) {
     ord[, row_quantile := dplyr::ntile(dplyr::desc(ord[[quantiling$by]]), n=quantiling$n)]
   } else {
-    ord[, row_quantile := ntile(ord[[quantiling$by]], n=quantiling$n)]
+    ord[, row_quantile := dplyr::ntile(ord[[quantiling$by]], n=quantiling$n)]
   }
 
   ord <- ord[, .(CFHASH, row_quantile)]
