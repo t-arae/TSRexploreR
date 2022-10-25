@@ -68,6 +68,7 @@ plot_density <- function(
   color="default",
   ...
 ) {
+  score <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
