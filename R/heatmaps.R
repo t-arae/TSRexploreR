@@ -569,7 +569,7 @@ plot_heatmap <- function(
     dplyr::summarize(aggr_var=quantile_fun(!!quantiling))
 
   setDT(merged)
-  merged[, row_quantile := ntile(aggr_var, n=n_quantiles)]
+  merged[, row_quantile := dplyr::ntile(aggr_var, n=n_quantiles)]
   merged[, row_quantile := forcats::fct_rev(factor(row_quantile))]
   merged[, aggr_var := NULL]
 
