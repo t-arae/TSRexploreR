@@ -47,6 +47,7 @@ plot_reduction <- function(
   scale=TRUE,
   ...
 ) {
+  sample_name <- NULL
 
   ## Check if PCAtools is installed.
   if (!requireNamespace("PCAtools", quietly = TRUE)) {
