@@ -15,6 +15,7 @@
   dominant=FALSE,
   data_conditions=NULL
 ) {
+  tss <- . <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -162,6 +163,7 @@ plot_sequence_logo <- function(
   ),
   ...
 ) {
+  . <- NULL
 
   ## Check if ggseqlogo and cowplot are installed.
   if (!requireNamespace("ggseqlogo", quietly = TRUE)) {
@@ -329,6 +331,7 @@ plot_sequence_colormap <- function(
   raster_dpi=150,
   ...
 ) {
+  FHASH <- row_order <- position <- base <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
