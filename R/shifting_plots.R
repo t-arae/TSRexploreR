@@ -51,6 +51,7 @@ plot_shift_rank <- function(
   score_order="descending",
   ncol=3
 ) {
+  shift_status <- FID <- shift_score <- comparison <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -157,6 +158,7 @@ plot_shift_count <- function(
   return_table=FALSE,
   ...
 ) {
+  shift_status <- . <- comparison <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
