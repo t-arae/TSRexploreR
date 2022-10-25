@@ -53,6 +53,7 @@ plot_genomic_distribution <- function(
   return_table=FALSE,
   ...
 ) {
+  simple_annotations <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
@@ -122,6 +123,7 @@ plot_genomic_distribution <- function(
 ## @param grouping_status Whether data is grouped.
 
 .calculate_distribution <- function(selected_samples, grouping_status) {
+  . <- simple_annotations <- count <- NULL
 
   if (grouping_status != "none") {
     setnames(selected_samples, old=grouping_status, new="grouping")
