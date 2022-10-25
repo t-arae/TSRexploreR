@@ -68,6 +68,7 @@ setMethod("tsr_experiment<-", signature(TSRexploreR_object="tsr_explorer"),
 #' @export
 
 extract_counts <- function(experiment, data_type, samples, use_normalized=FALSE) {
+  score <- normalized_score <- NULL
 
   ## Extract appropriate TSS or TSR samples.
   if (data_type == "tss") {
@@ -222,4 +223,4 @@ set_count_slot <- function(
   slot(tsre_obj, fill_slot)[[data_type]][[subslot]] <- new_data
   return(tsre_obj)
 }
-  
+
