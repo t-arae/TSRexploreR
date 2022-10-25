@@ -29,6 +29,7 @@ format_counts <- function(
   data_type=c("tss", "tsr"),
   samples="all"
 ) {
+  FHASH <- seqnames <- strand <- NULL
 
   ## Check inputs.
   assertthat::assert_that(is(experiment, "tsr_explorer"))
